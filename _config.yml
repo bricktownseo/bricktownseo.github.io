@@ -1,46 +1,110 @@
+### GENERAL SETTINGS ###
+
 # Site settings
-title: Freelancer
-email: phil@bricktownseo.com
-url: https://bricktownseo.github.io
-description: "Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description."
-
-# Contact form: comment the line below if you want to stick with the default PHP contact form
-contact: static
-
-# Color settings (hex-codes without the leading hash-tag)
-color:
-  primary: 18bc9c #80B3FF
-  secondary: 2c3e50 #FD6E8A
-  secondary-dark: 233140 #A2122F
-
-# Footer settings
-footer:
-  copyright: Dr. Henry Jekyll
-  location: Location
-  social: Around the Web
-  credits: Credits
-
-# Social networks usernames (many more available: google-plus, flickr, dribbble, pinterest, instagram, tumblr, linkedin, etc.)
-social:
-  - title: twitter
-    url: http://twitter.com/jekyllrb
-  - title: facebook
-    url:
-  - title: stack-overflow
-    url: http://stackoverflow.com/questions/tagged/jekyll
-  - title: bitbucket
-    url: http://bitbucket.org/jekyll
-  - title: github
-    url: http://github.com/jekyll
-
-# Postal address (add as many lines as necessary)
-address:
-  - line: 3481 Melrose Place
-  - line: Beverly Hills, CA 90210
-
-# Credits content
-credits: 'Freelancer is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.'
+title: BRICKTOWNSEO.
+seotitle: Oklahoma City SEO Experts | Bricktown SEO
+description: "Bricktown SEO is a fast paced software development company with specialties in Oklahoma City SEO (Google Page Ranking), software and web programming, and Google AdWords for the Oklahoma City Metro"
+analytics: UA-58465065-1
+baseurl: #important: start with /
+url: "http://bricktownseo.com"
 
 # Build settings
 markdown: kramdown
-permalink: pretty
+permalink: /:categories/:title
+excerpt_separator: <!--more--> #use this in posts to define how long the excerpt of the post (that is shown on the Blog page) is
+
+colors:  #in hex code if not noted else
+  primary: "#00b3fe" #"#F70031" 
+  primary_rgb: "0,179,254" #"247,0,49" #rgb of the primary. Needed in some places for the transparency effect.  
+  secondary: "#384452" #"#33004D"
+  link: "#428bca"
+  link_hover: "#01b2fe"
+  footer_heading: "#ffffff"
+  footer_content: "#bfc9d3"
+  
+  
+### CONTACT SETTINGS ###
+
+# Social networks usernames. Many more available: google-plus, flickr, linkedin, etc). Shown in footer.
+social:
+  - title: facebook
+    url: https://facebook.com/BricktownSEO
+  - title: twitter
+    url: https://twitter.com/BricktownSEO
+  - title: youtube
+    url: https://youtube.com/BricktownSEO
+  - title: google-plus
+    url: https://plus.google.com/+Bricktownseo
+  - title: linkedin
+    url: https://www.linkedin.com/in/bricktownseo
+    
+# Postal address (add as many lines as necessary). Shown in footer and on Contact page.
+address:
+  - lines: 
+    - 3818 Marked Tree Drive,
+    - Edmond, OK, 73013,
+    - United States
+email: phil@bricktownseo.com
+tel: +1 (405) 231-0670
+
+
+### GENERAL DATA FOR VARIOUS LOCATIONS ###
+    
+# Members information. Shown on About page.
+members:
+  - name: Phil Switzer
+    position: CEO
+    text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    img: phil.jpg
+    social:
+      - title: envelope #use for email address
+        url: mailto:phil@bricktownseo.com
+      - title: twitter
+        url: http://twitter.com/bricktownseo
+  - name: Paul Jameson
+    position: Lead Designer
+    text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    img: team02.jpg
+    social:
+      - title: envelope #use for email address
+        url: mailto:name@domain.com
+      - title: twitter
+        url: http://twitter.com/handle
+  - name: Laura Sommers
+    position: Lead Developer
+    text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    img: team03.jpg
+    social:
+      - title: envelope #use for email address
+        url: mailto:name@domain.com
+      - title: twitter
+        url: http://twitter.com/handle
+  - name: Martin Blunt
+    position: Marketing
+    text: Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+    img: team04.jpg
+    social:
+      - title: envelope #use for email address
+        url: mailto:name@domain.com
+      - title: twitter
+        url: http://twitter.com/handle
+    
+# Clients information. Shown on Home and About pages.
+clients:
+  - name: dribbble
+    img: client01.png
+  - name: Code is Poetry
+    img: client02.png
+  - name: Vimeo
+    img: client03.png
+  - name: VimeoPro
+    img: client04.png
+    
+# Short text about your company. Shown in footer on every page and also separately on Home and Contact page.
+about: "At Bricktown SEO we are always ready to tackle your Oklahoma City SEO projects along with any custom software development. You can fill out the form below and we will get back with you or you can use the following number to send a text message or give us a call. We look forward to talking to you soon."
+
+# Testimonial content. Shown on Home and About page. 
+testimonial:
+    message: "Phil was amazing! He helped us with rebuilding our website, making it extremely user friendly, and very appealing to the eyes. He taught us a lot of verbiage involving online website making and gave us plenty of tips to assist with the continued growth of our website. He was able to get us to the front page of Yahoo, Bing, and the most sought after Google within about 6 weeks. Not only did he help with our website, but he assisted in coming up with creative events that our clientele would possibly be interested in. He has a amazing skills and expertise involving the internet and web building world. We are looking forward to being able to work with Phil in the future!"
+    author: Ali Galeancu
+    position: Owner - Royal Limos OKC
