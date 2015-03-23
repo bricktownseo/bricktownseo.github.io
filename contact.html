@@ -13,49 +13,41 @@ permalink: /contact/
             <h4>Just Get In Touch!</h4>
             <div class="hline"></div>
                 <p>{{ site.about }}</p>
-                <form role="form" action="//bricktownseo.us10.list-manage.com/subscribe/post?u=c0b16969e23c57b71079f7452&amp;id=2211b0d5de" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <form role="form" action="//formspree.io/bricktownseo@gmail.com" method="post">
                   <div class="form-group">
-                    <label for="FirstName">First Name</label>
-                    <input type="text" class="form-control" id="FirstName" name="FNAME">
-                  </div>
-                  <div class="form-group">
-                    <label for="LastName">Last Name</label>
-                    <input type="text" class="form-control" id="LastName" name="LNAME">
+                    <label for="Name">Name</label>
+                    <input type="text" class="form-control" id="Name" name="name">
                   </div>
                   <div class="form-group">
                     <label for="Email">Email address</label>
-                    <input type="email" class="form-control" id="Email" name="EMAIL">
+                    <input type="email" class="form-control" id="Email" name="_replyto">
                   </div>
                   <div class="form-group">
-                    <label for="Subject">Subject</label>
-                    <input type="email" class="form-control" id="Subject" name="SUBJECT">
+                    <label for="Message">Contact Information and Request</label>
+                    <textarea class="form-control" id="Message" rows="3" name="Message"></textarea>
                   </div>
-                  <div class="form-group">
-                    <label for="Message">Message</label>
-                    <textarea class="form-control" id="Message" rows="3" name="MESSAGE"></textarea>
-                  </div>
-                  <button type="submit" class="btn btn-theme" name="subscribe">Submit</button>
-                  <div style="position: absolute; left: -5000px;">
-                      <input type="text" name="b_c0b16969e23c57b71079f7452_2211b0d5de" tabindex="-1" value="">
-                  </div>
-                  <div id="mce-responses" class="clear">
-                    <div class="response" id="mce-error-response" style="display:none"></div>
-                    <div class="response" id="mce-success-response" style="display:none"></div>
-                  </div>  
+                  <button type="submit" class="btn btn-theme">Submit</button>
+                  <input type="hidden" name="_subject" value="Web Submission!" />
+                  <input type="text" name="_gotcha" style="display:none" />
+                  <!--<input type="hidden" name="_next" value="//bricktownseo.com/thanks/" />-->
                 </form>
         </div><! --/col-lg-8 -->
         
-        <div class="col-lg-4">
+        <div class="col-lg-4" itemscope itemtype="http://schema.org/LocalBusiness">
             <h4>Our Address</h4>
             <div class="hline"></div>
-                <p>
+                <h2><span itemprop="name">Bricktown SEO</span></h2>
+                <p itemprop="address">
                     {% for line in site.address.first.lines %}
                         {{ line }} <br>
                     {% endfor %}
                 </p>
                 <p>
-                    Email: {{ site.email }}<br/>
-                    Phone: {{ site.tel }}
+                    Email: <span itemprop="email">{{ site.email }}</span><br/>
+                    Phone: <span itemprop="telephone">{{ site.tel }}</span>
+                </p>
+                <p>
+                <span itemprop="description">We fulfill Oklahoma City SEO needs, software development requirements and all things web related.</span>
                 </p>
         </div>
     </div><! --/row -->

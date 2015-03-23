@@ -2,11 +2,11 @@
 layout: post
 title: "Power Of Google"
 date: 2015-03-10 16:54:46
-author: Admin
+author: Phil Switzer
 categories: 
 - blog 
-img: post01.jpg
-thumb: thumb01.jpg
+img: Google.png
+thumb: Google.png
 permalink: /oklahoma-city/power-of-google/
 ---
 

@@ -5,8 +5,9 @@ date: 2015-03-23 20:25:46
 author: Phil Switzer
 categories: 
 - blog
-img: post01.jpg
-thumb: thumb01.jpg
+img: google-mobile-responsive-design.jpg
+courtesy: searchengineland.com
+thumb: google-mobile-responsive-design.jpg
 permalink: /oklahoma-city/mobile-friendly/
 ---
 
