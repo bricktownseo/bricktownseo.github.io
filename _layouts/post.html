@@ -7,7 +7,7 @@ layout: default
 <div class="container mtb">
     <div class="row">
         <! -- SINGLE POST -->
-        <div class="col-lg-8">
+        <div class="col-lg-8 col-lg-offset-2">
             <! -- Blog Post  -->
             <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ page.img }}"></p>
             <a href="{{ page.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ page.title }}</h3></a>
@@ -16,16 +16,25 @@ layout: default
             {{ content }}
 
             <div class="spacing"></div>
-            <!-- <h6>SHARE:</h6>
+            <h6>SHARE:</h6>
             <p class="share">
+                <a href="https://www.facebook.com/sharer/sharer.php?app_id=113869198637480&sdk=joey&u={{ page.url | prepend:site.baseurl }}&display=popup&ref=plugin&src=share_button" target="_blank"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-tumblr"></i></a>
-                <a href="#"><i class="fa fa-google-plus"></i></a>		 		
-            </p> -->
+                <a href="#"><i class="fa fa-google-plus"></i></a>	
+                
+                <span class='st_facebook_large' displayText='Facebook'></span>
+                <span class='st_googleplus_large' displayText='Google +'></span>
+                <span class='st_twitter_large' displayText='Tweet'></span>
+                <span class='st_linkedin_large' displayText='LinkedIn'></span>
+                <span class='st_pinterest_large' displayText='Pinterest'></span>
+                <span class='st_email_large' displayText='Email'></span>
+            </p>
         </div><! --/col-lg-8 -->
-        
-        {% include sidebar.html %}
 
     </div><! --/row -->
 </div><! --/container -->
+
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://w.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "dcef4dc4-273c-4f7b-b50b-4833f758065c", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>

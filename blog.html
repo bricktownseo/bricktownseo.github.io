@@ -1,18 +1,14 @@
 ---
 layout: blog
-title: Blog
+title: Oklahoma City SEO Blog
 seotitle: Oklahoma City SEO Blog | Bricktown SEO
-permalink: /blog/
+permalink: /oklahoma-city/
 ---
 
 <div class="container mtb">
     <div class="row">
-
-        <! -- BLOG POSTS LIST -->
-        <div class="col-lg-8">
-
+        <div class="col-lg-8 col-lg-offset-2">
             {% for post in site.categories['blog'] %}
-                <! -- Blog Post -->
                 <a href="{{ post.url | prepend: site.baseurl }}">
                     <img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ post.img }}">
                 </a>    
@@ -24,10 +20,6 @@ permalink: /blog/
 
                 <div class="spacing"></div>
             {% endfor %}
-
-        </div><! --/col-lg-8 -->
-
-        {% include sidebar.html %}
-
-    </div><! --/row -->
-</div><! --/container -->
+        </div>
+    </div>
+</div>
