@@ -5,7 +5,7 @@ title: BRICKTOWNSEO.
 seotitle: Oklahoma City SEO Experts | Bricktown SEO
 description: "Bricktown SEO is a fast paced software development company with specialties in Oklahoma City SEO (Google Page Ranking), software and web programming, and Google AdWords for the Oklahoma City Metro"
 analytics: UA-58465065-1
-baseurl: "http://bricktownseo.github.com/" #important: start with /
+baseurl: "http://bricktownseo.github.com" #important: start with /
 url: "http://bricktownseo.com"
 
 # Build settings
