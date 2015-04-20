@@ -20,6 +20,13 @@
       <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{% if page.seotitle %}{{ page.seotitle }}{% else %}{{ page.title }}{% endif %}" />
+    <meta name="description" content="{% if page.seodec %} {{ page.seodesc }} {% else %} Hello! I’m Phil Switzer and I’m sure you landed on this page by searching Google for the term Oklahoma City SEO in one of the areas that I rank in or maybe by on ... {% endif %}">
+    <meta property="og:url" content="http://bricktownseo.com/" />
+    <meta property="og:site_name" content="Bricktown SEO" />
+    <meta property="og:image" content="http://bricktownseo.com/assets/img/BricktownSEO.jpg" />
     
     <!-- Facebook Conversion Code for BricktownSEO.com -->
     <script>(function() {
