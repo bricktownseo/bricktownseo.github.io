@@ -74,14 +74,16 @@ angular.module('SEMRushApp')
       var newRequest = new xdRequest;
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
-        $scope.keywords = SEMRushData(response.html);
-        
-        $scope.searching = false;
-        $scope.doneSearching = true;
-        $scope.complete = true;
-        
-        SEMRushOrganic();
-        $scope.$apply();
+        $scope.$apply(function()
+          $scope.keywords = SEMRushData(response.html);
+          
+          $scope.searching = false;
+          $scope.doneSearching = true;
+          $scope.complete = true;
+          
+          SEMRushOrganic();
+        });
+
       });
     }
 
@@ -110,9 +112,6 @@ angular.module('SEMRushApp')
                 $scope.domains[urls[j]["Domain"]].position = $scope.domains[urls[j]["Domain"]].position+"\n "+"("+(j+1)+") "+testKeyword;
               } 
             }
-            //console.log(urls);
-            console.log($scope.domains);
-            $scope.$apply();
           });
       }
     }
@@ -122,14 +121,15 @@ angular.module('SEMRushApp')
     var newRequest = new xdRequest;
     newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database=us");
     newRequest.get(function(response){
-      var domain = response.url.substring(response.url.indexOf("domain=")+7);
-      domain = domain.substring(0,domain.indexOf("&"))
-      var paid = SEMRushData(response.html);
-      if(paid.length>0){
-        $scope.domains[domain]["paid"] = paid.length;
-        $scope.domains[domain]["paiddetail"] = paid;
-      }
-      $scope.$apply();
+        $scope.$apply(function(){
+        var domain = response.url.substring(response.url.indexOf("domain=")+7);
+        domain = domain.substring(0,domain.indexOf("&"))
+        var paid = SEMRushData(response.html);
+        if(paid.length>0){
+          $scope.domains[domain]["paid"] = paid.length;
+          $scope.domains[domain]["paiddetail"] = paid;
+        }
+      });
     });
   }
 
