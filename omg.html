@@ -21,21 +21,19 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
     </div>
     <div class="row" ng-show="!searching && !complete && !error">
     	<div class="col-lg-8 col-lg-offset-2">
-    		<form action="#">
-				<div class="form-group">
-					<label for="sem">SEM Rush Key</label>
-					<input type="text" class="form-control" id="sem" ng-model="semkey">
-				</div>
-				<div class="form-group">
-					<label for="city">City</label>
-					<input type="text" class="form-control" id="city" ng-model="city">
-				</div>
-				<div class="form-group">
-					<label for="keyword">Keyword</label>
-					<input type="text" class="form-control" id="keyword" ng-model="keyword">
-				</div>
-				<button class="btn btn-theme" ng-click="search()">Search...</button>
-            </form>
+			<div class="form-group">
+				<label for="sem">SEM Rush Key</label>
+				<input type="text" class="form-control" id="sem" ng-model="semkey">
+			</div>
+			<div class="form-group">
+				<label for="city">City</label>
+				<input type="text" class="form-control" id="city" ng-model="city">
+			</div>
+			<div class="form-group">
+				<label for="keyword">Keyword</label>
+				<input type="text" class="form-control" id="keyword" ng-model="keyword">
+			</div>
+			<button class="btn btn-theme" ng-click="search()">Search...</button>
 	    </div>
     </div>
 
