@@ -88,7 +88,7 @@ angular.module('SEMRushApp')
       for(var i = 0; i < $scope.keywords.length; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
         var newRequest = new xdRequest;
-        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+$scope.keywords[i].Keyword+"&database=us");
+        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
         newRequest.get(function(response){
             console.log(response);
 
@@ -176,14 +176,14 @@ angular.module('SEMRushApp')
     
     if(data.includes("ERROR")){
       console.log(data);
-      $scope.status = "Error checking the keyword";
+      $scope.status_update = "Error checking the keyword";
       return resp;
     }
     var lines = data.split("\n");
     var headers = [];
 
     for(var i = 0; i < lines.length; i++){
-      var vals = lines[i].split(";");
+      var vals = lines[i].trim().split(";");
       if(i==0){
         //Headers
         headers = vals;
