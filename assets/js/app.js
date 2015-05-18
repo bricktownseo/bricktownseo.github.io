@@ -72,7 +72,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
       var newRequest = new xdRequest;
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
         $scope.$apply(function(){
           $scope.keywords = SEMRushData(response.html);
@@ -92,13 +92,13 @@ angular.module('SEMRushApp')
       for(var i = 0; i < $scope.keywords.length; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
         var newRequest = new xdRequest;
-        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
+        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=1&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
         newRequest.get(function(response){
             var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
             testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
             
             var urls = SEMRushData(response.html);
-            for(var j = 10; j < urls.length; j++){
+            for(var j = 0; j < urls.length; j++){
               if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
                 $scope.domainArray.push(urls[j]["Domain"]);
                 $scope.domains[urls[j]["Domain"]] = {domain:urls[j]["Domain"],position:"("+(j+1)+") "+testKeyword};
@@ -119,7 +119,7 @@ angular.module('SEMRushApp')
 
   function SEMRushDomainAdwords(domain){
     var newRequest = new xdRequest;
-    newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database=us");
+    newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database=us");
     newRequest.get(function(response){
         $scope.$apply(function(){
         var domain = response.url.substring(response.url.indexOf("domain=")+7);
