@@ -54,7 +54,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
       var newRequest = new xdRequest;
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=50&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
         var keywords = SEMRushData(response.html);
         $scope.$apply(function(){
