@@ -41,7 +41,7 @@ angular
 
 
 angular.module('SEMRushApp')
-  .controller('SEMRushCtrl', ['$scope','blockUI','$http','$q', function ($scope, blockUI, $http, $q) {
+  .controller('SEMRushCtrl', ['$scope','blockUI','$http','$q', function ($scope, $http, $q) {
 
     $scope.keywords = "";
     $scope.city = "";
@@ -49,19 +49,17 @@ angular.module('SEMRushApp')
     $scope.topKeyword = {keyword:"",volume:0};
     $scope.domains = {};
     $scope.domainArray = [];
+    $scope.status_update = "";
 
     $scope.search = function(){
       $scope.searching = true;
 
-      blockUI.start('Searching Domains...');
+      $scope.keywordsArr = [];
 
-
-    $scope.keywordsArr = [];
-
-    $scope.statusText = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
-    var check = encodeURIComponent($scope.city+"+"+$scope.keyword.trim());
-    
-    SEMRushKeyword(check);
+      $scope.status_update = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
+      var check = encodeURIComponent($scope.city+"+"+$scope.keyword.trim());
+      
+      SEMRushKeyword(check);
       /*
       blockUI.message('Checking domains with Namecheap...'); 
       blockUI.message('Getting TF/CF from Majestic...'); 
@@ -80,25 +78,26 @@ angular.module('SEMRushApp')
         $scope.keywords = SEMRushData(response.html);
         
         $scope.searching = false;
-        $scope.complete = true;
+        $scope.doneSearching = true;
         
         SEMRushOrganic();
       });
     }
 
   function SEMRushOrganic(){
-    /*
     if($scope.keywords.length>0){
       for(var i = 0; i < $scope.keywords.length; i++){
-        var url = "http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+$scope.keywords[i].Keyword+"&database=us";
-        blockUI.message('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
-        $http.get(url,{headers:{'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'}}).
-          success(function(data, status, headers, config) {
-            //console.log(headers);
-            var testKeyword = config.url.substring(config.url.indexOf("phrase=")+7);
-            testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
-            
-            var urls = SEMRushData(data);
+        $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
+        var newRequest = new xdRequest;
+        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+$scope.keywords[i].Keyword+"&database=us");
+        newRequest.get(function(response){
+            console.log(response);
+
+            //var testKeyword = config.url.substring(config.url.indexOf("phrase=")+7);
+            //testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
+            var testKeyword = "TEST";
+
+            var urls = SEMRushData(response.html);
             for(var j = 10; j < urls.length; j++){
               if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
                 $scope.domainArray.push(urls[j]["Domain"]);
@@ -115,27 +114,15 @@ angular.module('SEMRushApp')
             }
             //console.log(urls);
             console.log($scope.domains);
-            //SEMRushOrganic();
-            blockUI.stop();
-            //$scope.keywordsArr.push(arr);
-
-            //SEMRush
-
-          }).
-          error(function(data, status, headers, config) {
-            console.log(data);
-            blockUI.stop();
-        });
+            
+          });
       }
-    }else{
-      blockUI.stop();
-      $scope.error = "We failed to do something right...";
     }
-    */
-    blockUI.stop();
   }
 
   function SEMRushDomainAdwords(domain){
+
+    /*
     var url = "http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10000&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+domain+"&display_sort=po_asc&database=us";
     $http.get(url,{headers:{'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'},"domain": domain}).
       success(function(data, status, headers, config) {
@@ -172,7 +159,7 @@ angular.module('SEMRushApp')
         //SEMRushOrganic();
         blockUI.stop();
         //$scope.keywordsArr.push(arr);
-      */
+      *
         //SEMRush
 
       }).
@@ -181,6 +168,7 @@ angular.module('SEMRushApp')
         blockUI.stop();
     });
 
+  */
   }
 
   function SEMRushData(data){
