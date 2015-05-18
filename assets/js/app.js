@@ -17,21 +17,10 @@ angular
     'ngSanitize',
     'ngTouch'
   ]);
-  /*
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        controller: 'SEMRushCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
-*/
 
 
 angular.module('SEMRushApp')
-  .controller('SEMRushCtrl', ['$scope' function ($scope) {
+  .controller('SEMRushCtrl', ['$scope', function ($scope) {
 
     $scope.keywords = "";
     $scope.city = "";
