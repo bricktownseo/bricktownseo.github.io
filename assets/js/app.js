@@ -17,7 +17,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'blockUI'
-  ])
+  ]);
+  /*
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
@@ -27,6 +28,7 @@ angular
         redirectTo: '/'
       });
   });
+*/
 
 
 angular.module('SEMRushApp')
