@@ -49,7 +49,7 @@ angular.module('SEMRushApp')
 
     $scope.keywordsArr = [];
 
-    $scope.status = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
+    $scope.statusText = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
     var check = encodeURIComponent($scope.city+"+"+$scope.keyword.trim());
     
     SEMRushKeyword(check);
@@ -66,7 +66,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
     var url = "http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us";
-    $http.get(url).
+    $http.get(url,headers:{'Access-Control-Allow-Origin': '*'}).
       success(function(data, status, headers, config) {
         $scope.keywords = SEMRushData(data);
         //console.log($scope.keywords);
@@ -91,7 +91,7 @@ angular.module('SEMRushApp')
       for(var i = 0; i < $scope.keywords.length; i++){
         var url = "http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+$scope.keywords[i].Keyword+"&database=us";
         blockUI.message('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
-        $http.get(url).
+        $http.get(url,headers:{'Access-Control-Allow-Origin': '*'}).
           success(function(data, status, headers, config) {
             //console.log(headers);
             var testKeyword = config.url.substring(config.url.indexOf("phrase=")+7);
@@ -135,7 +135,7 @@ angular.module('SEMRushApp')
 
   function SEMRushDomainAdwords(domain){
     var url = "http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10000&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+domain+"&display_sort=po_asc&database=us";
-    $http.get(url, {"domain": domain}).
+    $http.get(url,headers:{'Access-Control-Allow-Origin': '*',"domain": domain}).
       success(function(data, status, headers, config) {
         var domain = config.domain;
         var paid = SEMRushData(data);
