@@ -74,7 +74,7 @@ angular.module('SEMRushApp')
       var newRequest = new xdRequest;
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
-        $scope.$apply(function()
+        $scope.$apply(function(){
           $scope.keywords = SEMRushData(response.html);
           
           $scope.searching = false;
