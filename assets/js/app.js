@@ -74,13 +74,11 @@ angular.module('SEMRushApp')
     }
 
     function SEMRushKeyword(keyword){
-    var url = "http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us";
-
-    var newRequest = new xdRequest;
-    newRequest.setURL(url);
-    newRequest.get(function(response){
-      console.log(response);
-    });
+      var newRequest = new xdRequest;
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.get(function(response){
+        console.log(response);
+      });
 
       /*
     $http.get(url,{'headers':{
