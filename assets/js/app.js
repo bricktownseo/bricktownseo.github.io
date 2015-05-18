@@ -43,7 +43,12 @@ angular
 angular.module('SEMRushApp')
   .controller('SEMRushCtrl', ['$scope','blockUI','$http','$q', function ($scope, blockUI, $http, $q) {
 
-    $http.get("http://api.ipify.org").success(function(data, status,headers, config){
+    $http.get("http://api.ipify.org".{'headers':{
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
+        'Access-Control-Allow-Headers': 'Origin, Accept, Content-Type, X-Requested-With'
+        }})
+    .success(function(data, status,headers, config){
       $scope.ip = data;
       console.log(data);
     });
