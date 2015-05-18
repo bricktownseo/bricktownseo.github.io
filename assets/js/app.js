@@ -54,7 +54,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
       var newRequest = new xdRequest;
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=50&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
         var keywords = SEMRushData(response.html);
         $scope.$apply(function(){
@@ -70,16 +70,16 @@ angular.module('SEMRushApp')
 
   function SEMRushOrganic(){
     if($scope.keywords.length>0){
-      for(var i = 0; i < $scope.keywords.length; i++){
+      for(var i = 0; i < $scope.keywords.length && i < 1; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
         var newRequest = new xdRequest;
-        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=1&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
+        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
         newRequest.get(function(response){
             var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
             testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
             
             var urls = SEMRushData(response.html);
-            for(var j = 0; j < urls.length; j++){
+            for(var j = 10; j < urls.length; j++){
               if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
                 $scope.domainArray.push(urls[j]["Domain"]);
                 $scope.domains[urls[j]["Domain"]] = {domain:urls[j]["Domain"],position:"("+(j+1)+") "+testKeyword};
@@ -115,7 +115,6 @@ angular.module('SEMRushApp')
   }
 
   function SEMRushData(data){
-    console.log(data);
     var resp = [];
     
     if(data.includes("ERROR")){
