@@ -20,7 +20,7 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
         </div>
     </div>
     <div class="row" ng-show="!searching && !complete && !error">
-    	<div class="col-lg-12">
+    	<div class="col-lg-8 col-lg-offset-2">
     		<form action="#">
 				<div class="form-group">
 					<label for="sem">SEM Rush Key</label>
@@ -41,36 +41,42 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 
 
 	<div class="row" ng-show="searching && !error">
-		<h2>{{status}}</h2>
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>{{status}}</h2>
+		</div>
 	</div>
 
 	<div class="row" ng-show="complete && !error">
+		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Top Related Keywords</h3>
-		<table class="table">
-			<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
-			<tbody>
-				<tr ng-repeat="keyword in keywords">
-					<td>{{keyword["Keyword"]}}</td>
-					<td>{{keyword["Search Volume"]}}</td>
-					<td>{{keyword["CPC"]}}</td>
-					<td>{{keyword["Competition"]}}</td>
-					<td>{{keyword["Number of Results"]}}</td>
-				</tr>
-			</tbody>
-		</table>
-		<h3>Domain Results</h3>
-		<table class="table">
-			<thead>
-				<tr><th>Domain</th><th>Organic Place</th><th>Paid</th></tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="domain in domains"><td>{{domain.domain}}</td><td>{{domain.position}}</td><td><a ng-show="domain.paid" class="btn" ng-click="showData(domain)" data-tooltip="{{domain.paiddetail}}">{{domain.paid}}</a></td></tr>
-			</tbody>
-		</table>
+			<table class="table">
+				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
+				<tbody>
+					<tr ng-repeat="keyword in keywords">
+						<td>{{keyword["Keyword"]}}</td>
+						<td>{{keyword["Search Volume"]}}</td>
+						<td>{{keyword["CPC"]}}</td>
+						<td>{{keyword["Competition"]}}</td>
+						<td>{{keyword["Number of Results"]}}</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Domain Results</h3>
+			<table class="table">
+				<thead>
+					<tr><th>Domain</th><th>Organic Place</th><th>Paid</th></tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="domain in domains"><td>{{domain.domain}}</td><td>{{domain.position}}</td><td><a ng-show="domain.paid" class="btn" ng-click="showData(domain)" data-tooltip="{{domain.paiddetail}}">{{domain.paid}}</a></td></tr>
+				</tbody>
+			</table>
+		</div>
 	</div>
 
 	<div class="row" ng-show="error">
-		<h2>{{error}}</h2>
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>{{error}}</h2>
+		</div>
 	</div>
 
 	<!-- Modal Structure -->
