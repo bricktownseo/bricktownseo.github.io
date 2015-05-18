@@ -119,9 +119,11 @@ angular.module('SEMRushApp')
     var resp = [];
     
     if(data.indexOf("ERROR")>-1){
-      console.log(data);
-      $scope.status_update = "Error checking the keyword";
-      $scope.error_message = data;
+      if(data.indexOf("50")==-1){
+        console.log(data);
+        $scope.status_update = "Error checking the keyword";
+        $scope.error_message = data;
+      }
       
       return resp;
     }
