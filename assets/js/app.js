@@ -118,7 +118,7 @@ angular.module('SEMRushApp')
   function SEMRushData(data){
     var resp = [];
     
-    if(data.includes("ERROR")){
+    if(data.indexOf("ERROR")>-1){
       console.log(data);
       $scope.status_update = "Error checking the keyword";
       return resp;
