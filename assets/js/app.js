@@ -43,16 +43,6 @@ angular
 angular.module('SEMRushApp')
   .controller('SEMRushCtrl', ['$scope','blockUI','$http','$q', function ($scope, blockUI, $http, $q) {
 
-    $http.get("http://api.ipify.org",{'headers':{
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Accept, Content-Type, X-Requested-With'
-        }})
-    .success(function(data, status,headers, config){
-      $scope.ip = data;
-      console.log(data);
-    });
-
     $scope.keywords = "";
     $scope.city = "";
     $scope.semkey = "";
@@ -85,6 +75,14 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
     var url = "http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us";
+
+    var newRequest = new xdRequest;
+    newRequest.setURL(url);
+    newRequest.get(function(response){
+      console.log(response);
+    });
+
+      /*
     $http.get(url,{'headers':{
         'X-Real-IP': $scope.ip,
         'Access-Control-Allow-Origin': '*',
@@ -107,6 +105,7 @@ angular.module('SEMRushApp')
         console.log(data);
         blockUI.stop();
       });
+      */
 
   }
 
