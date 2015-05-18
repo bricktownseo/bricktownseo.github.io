@@ -51,6 +51,12 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 		</div>
 	</div>
 
+	<div class="row" ng-show="error">
+		<div class="col-lg-8 col-lg-offset-2">
+			<p class="bg-danger">[[error]]</p>
+		</div>
+	</div>
+
 	<div class="row" ng-show="complete && !error">
 		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Top Related Keywords</h3>
@@ -75,12 +81,6 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 					<tr ng-repeat="domain in domains"><td>[[domain.domain]]</td><td>[[domain.position]]</td><td><span ng-show="domain.paid">$</span></td></tr>
 				</tbody>
 			</table>
-		</div>
-	</div>
-
-	<div class="row" ng-show="error">
-		<div class="col-lg-8 col-lg-offset-2">
-			<h2>[[error]]</h2>
 		</div>
 	</div>
 
