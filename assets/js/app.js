@@ -77,37 +77,19 @@ angular.module('SEMRushApp')
       var newRequest = new xdRequest;
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
-        console.log(response);
-      });
-
-      /*
-    $http.get(url,{'headers':{
-        'X-Real-IP': $scope.ip,
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
-        'Access-Control-Allow-Headers': 'Origin, Accept, Content-Type, X-Requested-With'
-        }}).
-      success(function(data, status, headers, config) {
-        $scope.keywords = SEMRushData(data);
-        //console.log($scope.keywords);
+        $scope.keywords = SEMRushData(response.html);
+        
         $scope.searching = false;
         $scope.complete = true;
+        
         SEMRushOrganic();
-        //blockUI.stop();
-        //$scope.keywordsArr.push(arr);
-
-        //SEMRush
-
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data);
-        blockUI.stop();
       });
-      */
+    });
 
   }
 
   function SEMRushOrganic(){
+    /*
     if($scope.keywords.length>0){
       for(var i = 0; i < $scope.keywords.length; i++){
         var url = "http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+$scope.keywords[i].Keyword+"&database=us";
@@ -151,7 +133,8 @@ angular.module('SEMRushApp')
       blockUI.stop();
       $scope.error = "We failed to do something right...";
     }
-    
+    */
+    blockUI.stop();
   }
 
   function SEMRushDomainAdwords(domain){
