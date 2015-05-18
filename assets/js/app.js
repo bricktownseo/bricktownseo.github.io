@@ -17,7 +17,9 @@ angular
     'ngSanitize',
     'ngTouch',
     'blockUI'
-  ]);
+  ]).config(function($httpProvider){
+    delete $httpProvider.defaults.headers.common['X-Requested-With'];
+  });
   /*
   .config(function ($routeProvider) {
     $routeProvider
@@ -66,7 +68,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
     var url = "http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us";
-    $http.get(url,{headers:{'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'}}).
+    $http.get(url).
       success(function(data, status, headers, config) {
         $scope.keywords = SEMRushData(data);
         //console.log($scope.keywords);
