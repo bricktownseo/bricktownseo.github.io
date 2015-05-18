@@ -81,6 +81,7 @@ angular.module('SEMRushApp')
         $scope.complete = true;
         
         SEMRushOrganic();
+        $scope.$apply();
       });
     }
 
@@ -111,7 +112,7 @@ angular.module('SEMRushApp')
             }
             //console.log(urls);
             console.log($scope.domains);
-            
+            $scope.$apply();
           });
       }
     }
@@ -128,6 +129,7 @@ angular.module('SEMRushApp')
         $scope.domains[domain]["paid"] = paid.length;
         $scope.domains[domain]["paiddetail"] = paid;
       }
+      $scope.$apply();
     });
   }
 
