@@ -20,7 +20,7 @@ angular
   ]).config(function($httpProvider){
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.headers.common = 'Content-Type: application/json';
-    $http.defaults.headers.put = {
+    $httpProvider.defaults.headers.put = {
         'Access-Control-Allow-Origin': '*',
         'Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS',
         'Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'
