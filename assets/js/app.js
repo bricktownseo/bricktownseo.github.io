@@ -54,16 +54,15 @@ angular.module('SEMRushApp')
       var newRequest = new xdRequest;
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
+        var keywords = SEMRushData(response.html);
         $scope.$apply(function(){
-          $scope.keywords = SEMRushData(response.html);
-          
-          $scope.searching = false;
-          $scope.doneSearching = true;
-          $scope.complete = true;
-          
-          SEMRushOrganic();
+          $scope.keywords = keywords;
         });
-
+        $scope.searching = false;
+        $scope.doneSearching = true;
+        $scope.complete = true;
+          
+        SEMRushOrganic();
       });
     }
 
