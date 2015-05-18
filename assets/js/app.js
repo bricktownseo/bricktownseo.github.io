@@ -123,7 +123,7 @@ angular.module('SEMRushApp')
     newRequest.get(function(response){
       var domain = response.url.substring(response.url.indexOf("domain=")+7);
       domain = domain.substring(0,domain.indexOf("&"))
-      var paid = SEMRushData(data);
+      var paid = SEMRushData(response.html);
       if(paid.length>0){
         $scope.domains[domain]["paid"] = paid.length;
         $scope.domains[domain]["paiddetail"] = paid;
