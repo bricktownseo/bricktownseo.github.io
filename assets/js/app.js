@@ -156,4 +156,8 @@ angular.module('SEMRushApp')
     console.log($scope);
   }
 
+  $scope.getKey = function(arr,key){
+    return arr[key];
+  }
+
   }]);
