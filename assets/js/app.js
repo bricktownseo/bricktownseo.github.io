@@ -40,7 +40,7 @@ angular.module('SEMRushApp')
       $scope.keywordsArr = [];
 
       $scope.status_update = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
-      var check = encodeURIComponent($scope.city+"+"+$scope.keyword.trim());
+      var check = encodeURIComponent(($scope.city+" "+$scope.keyword.trim()).replace(" ","+"));
       
       SEMRushKeyword(check);
       /*
