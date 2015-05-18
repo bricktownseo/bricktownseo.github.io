@@ -72,12 +72,13 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
       var newRequest = new xdRequest;
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+encodeURIComponent(keywor)d+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
         $scope.keywords = SEMRushData(response.html);
         
         $scope.searching = false;
         $scope.doneSearching = true;
+        $scope.complete = true;
         
         SEMRushOrganic();
       });
@@ -90,12 +91,9 @@ angular.module('SEMRushApp')
         var newRequest = new xdRequest;
         newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
         newRequest.get(function(response){
-            console.log(response);
-
-            //var testKeyword = config.url.substring(config.url.indexOf("phrase=")+7);
-            //testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
-            var testKeyword = "TEST";
-
+            var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
+            testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
+            
             var urls = SEMRushData(response.html);
             for(var j = 10; j < urls.length; j++){
               if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
@@ -120,54 +118,17 @@ angular.module('SEMRushApp')
   }
 
   function SEMRushDomainAdwords(domain){
-
-    /*
-    var url = "http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10000&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+domain+"&display_sort=po_asc&database=us";
-    $http.get(url,{headers:{'Access-Control-Allow-Origin': '*','Access-Control-Allow-Methods': 'GET, POST, PUT, DELETE, OPTIONS','Access-Control-Allow-Headers': 'Content-Type, X-Requested-With'},"domain": domain}).
-      success(function(data, status, headers, config) {
-        var domain = config.domain;
-        var paid = SEMRushData(data);
-        if(paid.length>0){
-          $scope.domains[domain]["paid"] = paid.length;
-          $scope.domains[domain]["paiddetail"] = paid;
-        }
-        //console.log(headers);
-        //console.log(data);
-        //console.log(config);
-        /*
-        var testKeyword = config.url.substring(config.url.indexOf("phrase=")+7);
-        testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
-        
-        var urls = SEMRushData(data);
-        for(var j = 10; j < urls.length; j++){
-          if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
-            $scope.domainArray.push(urls[j]["Domain"]);
-            $scope.domains[urls[j]["Domain"]] = {domain:urls[j]["Domain"],position:"("+(j+1)+") "+testKeyword};
-            SEMRushDomainAdwords(urls[j]["Domain"]);
-          }else{
-            $scope.domains[urls[j]["Domain"]].position = $scope.domains[urls[j]["Domain"]].position+"\n "+"("+(j+1)+") "+testKeyword;
-          }
-        }
-        for(var j = 0; j < 10 && j < urls.length; j++){
-          if($scope.domainArray.indexOf(urls[j]["Domain"])>=0){
-            $scope.domains[urls[j]["Domain"]].position = $scope.domains[urls[j]["Domain"]].position+"\n "+"("+(j+1)+") "+testKeyword;
-          } 
-        }
-        //console.log(urls);
-        console.log($scope.domains);
-        //SEMRushOrganic();
-        blockUI.stop();
-        //$scope.keywordsArr.push(arr);
-      *
-        //SEMRush
-
-      }).
-      error(function(data, status, headers, config) {
-        console.log(data);
-        blockUI.stop();
+    var newRequest = new xdRequest;
+    newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=10&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database=us";);
+    newRequest.get(function(response){
+      var domain = response.url.substring(response.url.indexOf("domain=")+7);
+      domain = domain.substring(0,domain.indexOf("&"))
+      var paid = SEMRushData(data);
+      if(paid.length>0){
+        $scope.domains[domain]["paid"] = paid.length;
+        $scope.domains[domain]["paiddetail"] = paid;
+      }
     });
-
-  */
   }
 
   function SEMRushData(data){
