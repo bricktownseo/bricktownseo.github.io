@@ -84,9 +84,7 @@ angular.module('SEMRushApp')
         
         SEMRushOrganic();
       });
-    });
-
-  }
+    }
 
   function SEMRushOrganic(){
     /*
