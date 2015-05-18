@@ -15,8 +15,7 @@ angular
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'blockUI'
+    'ngTouch'
   ]).config(function($httpProvider){
     $httpProvider.defaults.useXDomain = true;
     $httpProvider.defaults.headers.common = 'Content-Type: application/json';
@@ -41,7 +40,7 @@ angular
 
 
 angular.module('SEMRushApp')
-  .controller('SEMRushCtrl', ['$scope','blockUI','$http','$q', function ($scope, $http, $q) {
+  .controller('SEMRushCtrl', ['$scope','$http','$q', function ($scope, $http, $q) {
 
     $scope.keywords = "";
     $scope.city = "";
@@ -172,6 +171,7 @@ angular.module('SEMRushApp')
   }
 
   function SEMRushData(data){
+    console.log(data);
     var resp = [];
     
     if(data.includes("ERROR")){
