@@ -76,7 +76,7 @@ angular.module('SEMRushApp')
         newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
         newRequest.get(function(response){
             var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
-            testKeyword = testKeyword.substring(0,testKeyword.indexOf("&"))
+            testKeyword = decodeURIComponent(testKeyword.substring(0,testKeyword.indexOf("&")));
             
             var urls = SEMRushData(response.html);
             for(var j = 10; j < urls.length; j++){
@@ -126,16 +126,18 @@ angular.module('SEMRushApp')
     var headers = [];
 
     for(var i = 0; i < lines.length; i++){
-      var vals = lines[i].trim().split(";");
-      if(i==0){
-        //Headers
-        headers = vals;
-      }else{
-        var elem = {};
-        for(var j = 0; j < headers.length; j++){
-          elem[headers[j]] = vals[j];
+      if(lines[i].trim().length>0){
+        var vals = lines[i].trim().split(";");
+        if(i==0){
+          //Headers
+          headers = vals;
+        }else{
+          var elem = {};
+          for(var j = 0; j < headers.length; j++){
+            elem[headers[j]] = vals[j];
+          }
+          resp.push(elem);
         }
-        resp.push(elem);
       }
     }
     return resp;
