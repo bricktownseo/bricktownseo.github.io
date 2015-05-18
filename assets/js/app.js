@@ -26,6 +26,7 @@ angular.module('SEMRushApp')
   .controller('SEMRushCtrl', ['$scope', function ($scope) {
 
     $scope.keyword = "";
+    $scope.relatedKeywords = 1;
     $scope.city = "";
     $scope.semkey = "";
     $scope.domains = {};
