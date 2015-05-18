@@ -150,4 +150,8 @@ angular.module('SEMRushApp')
 
   }
 
+  $scope.dump = function(){
+    console.log($scope);
+  }
+
   }]);
