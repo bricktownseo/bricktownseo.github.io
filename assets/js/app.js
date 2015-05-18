@@ -16,16 +16,18 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch'
-  ]);
+  ], function($interpolateProvider){
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');
+  });
 
 
 angular.module('SEMRushApp')
   .controller('SEMRushCtrl', ['$scope', function ($scope) {
 
-    $scope.keywords = "";
+    $scope.keyword = "";
     $scope.city = "";
     $scope.semkey = "";
-    $scope.topKeyword = {keyword:"",volume:0};
     $scope.domains = {};
     $scope.domainArray = [];
     $scope.status_update = "";
