@@ -19,7 +19,7 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 			</p>
         </div>
     </div>
-    <div class="row" ng-show="!searching && !doneSearching && !error">
+    <div class="row" ng-show="!searching && !doneSearching && !error_message">
     	<div class="col-lg-8 col-lg-offset-2">
 			<div class="form-group">
 				<label for="sem">SEM Rush Key</label>
@@ -45,19 +45,19 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
     </div>
 
 
-	<div class="row" ng-show="searching && !error">
+	<div class="row" ng-show="searching && !error_message">
 		<div class="col-lg-8 col-lg-offset-2">
 			<h2>[[status_update]]</h2>
 		</div>
 	</div>
 
-	<div class="row" ng-show="error">
+	<div class="row" ng-show="error_message">
 		<div class="col-lg-8 col-lg-offset-2">
-			<p class="bg-danger">[[error]]</p>
+			<p class="bg-danger">[[error_message]]</p>
 		</div>
 	</div>
 
-	<div class="row" ng-show="complete && !error">
+	<div class="row" ng-show="complete && !error_message">
 		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Top Related Keywords</h3>
 			<table class="table">
