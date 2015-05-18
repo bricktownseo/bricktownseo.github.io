@@ -54,7 +54,7 @@ angular.module('SEMRushApp')
 
     function SEMRushKeyword(keyword){
       var newRequest = new xdRequest;
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit=5&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
+      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.get(function(response){
         var keywords = SEMRushData(response.html);
         $scope.$apply(function(){
@@ -70,7 +70,7 @@ angular.module('SEMRushApp')
 
   function SEMRushOrganic(){
     if($scope.keywords.length>0){
-      for(var i = 0; i < $scope.keywords.length && i < 1; i++){
+      for(var i = 0; i < $scope.keywords.length; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
         var newRequest = new xdRequest;
         newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database=us");
@@ -107,8 +107,7 @@ angular.module('SEMRushApp')
         domain = domain.substring(0,domain.indexOf("&"))
         var paid = SEMRushData(response.html);
         if(paid.length>0){
-          $scope.domains[domain]["paid"] = paid.length;
-          $scope.domains[domain]["paiddetail"] = paid;
+          $scope.domains[domain]["paid"] = true;
         }
       });
     });
@@ -141,16 +140,6 @@ angular.module('SEMRushApp')
       }
     }
     return resp;
-  }
-
-  $scope.showData = function(domain){
-    $scope.selected = domain;
-    $('#paid_modal').openModal();
-  }
-
-  $scope.closeData = function(){
-    $('#paid_modal').closeModal();
-
   }
 
   $scope.dump = function(){

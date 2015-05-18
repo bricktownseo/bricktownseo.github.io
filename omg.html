@@ -72,7 +72,7 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 					<tr><th>Domain</th><th>Organic Place</th><th>Paid</th></tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="domain in domains"><td>[[domain.domain]]</td><td>[[domain.position]]</td><td><a ng-show="domain.paid" class="btn" ng-click="showData(domain)" data-tooltip="[[domain.paiddetail]]">[[domain.paid]]</a></td></tr>
+					<tr ng-repeat="domain in domains"><td>[[domain.domain]]</td><td>[[domain.position]]</td><td><span ng-show="domain.paid">$</span></td></tr>
 				</tbody>
 			</table>
 		</div>
