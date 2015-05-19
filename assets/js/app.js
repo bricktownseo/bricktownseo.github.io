@@ -34,6 +34,18 @@ angular.module('SEMRushApp')
     $scope.status_update = "";
     $scope.country = "us";
 
+    $scope.reset = function(){
+      $scope.keyword = "";
+      $scope.relatedKeywords = 1;
+      $scope.city = "";
+      $scope.domains = {};
+      $scope.domainArray = [];
+      $scope.status_update = "";
+      $scope.complete = false;
+      $scope.searching = false;
+      $scope.doneSearching = false;
+    }
+
     $scope.search = function(){
       $scope.searching = true;
 
