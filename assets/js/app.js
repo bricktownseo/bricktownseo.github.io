@@ -105,6 +105,7 @@ angular.module('SEMRushApp')
             newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.country);
             newRequest.get(function(response) {
                 $scope.$apply(function() {
+                    var domaindata = SEMRushData(response.html);
                     console.log(domaindata);
                     console.log(domaindata[0]);
                     /*
