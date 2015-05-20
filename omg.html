@@ -124,7 +124,11 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 				</thead>
 				<tbody>
 					<!--ng-class="{domain.paid:'bg-success'}"-->
-					<tr ng-repeat="domain in domains"><td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td><td>[[domain.position]]</td><td>[[domain.paid | currency]]</td></tr>
+					<tr ng-repeat="domain in domains">
+						<td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td>
+						<td>[[domain.position]]</td>
+						<td><span ng-show="domain.paid > 0">[[domain.paid | currency]]</span></td>
+					</tr>
 				</tbody>
 			</table>
 		</div>
