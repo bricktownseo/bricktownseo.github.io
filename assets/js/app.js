@@ -32,7 +32,6 @@ angular.module('SEMRushApp')
             $scope.domainArray = [];
             $scope.complete = false;
             $scope.searching = false;
-            $scope.doneSearching = false;
             $scope.status = "";
             $scope.country = "us";
         }
