@@ -1,0 +1,139 @@
+---
+layout: omg-domains
+title: Giving Back
+seotitle: Giving Back | Free Online Tools
+permalink: /omg-domains/
+seodesc: This page is intended to be used for OMGers who are looking at how to utilize their skills to find potential clients and rank their sites.
+---
+<div class="container mtb" ng-app="SEMRushApp" ng-controller="SEMRushCtrl">
+    <div class="row">
+    	<div class="col-lg-8 col-lg-offset-2">
+    		<h2>SEMRush Domain Search</h2>
+    		<p>The purpose of this tool is to allow you to insert a list of domains, one per line and we will check for keyword placement and adwords buy. This works well if you have a list of domains that are prospective clients.</p>
+    		<p>
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+			<input type="hidden" name="cmd" value="_s-xclick">
+			<input type="hidden" name="hosted_button_id" value="LUL4P4CPXEESQ">
+			<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+			<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+			</form>
+			</p>
+    	</div>
+    </div>
+    <div class="row" ng-show="!searching && !doneSearching && !error_message">
+    	<div class="col-lg-8 col-lg-offset-2">
+			<div class="form-group">
+				<label for="sem">SEM Rush Key</label>
+				<input type="text" class="form-control" id="sem" ng-model="semkey">
+				<a href="http://www.semrush.com/api-use/" target="_blank"><small>Gey Key</small></a>
+			</div>
+			<div class="form-group">
+				<label for="domains">Domains</label>
+				<textarea class="form-control" id="domains" ng-model="domains">
+				<input type="text" class="form-control" id="keyword" ng-model="keyword">
+				<small>One domain per line</small>
+			</div>
+			<div class="form-group">
+				<label for="country">Country</label>
+				<select class="form-control" id="country" ng-model="country">
+					<option value="us">"US" (google.com)</option>
+					<option value="mobile-us">"mobile-us" (google.com)</option>
+					<option value="bing-us">"bing-us" (bing.com)</option>
+					<option value="uk">"UK" (google.co.uk)</option>
+					<option value="ca">"CA" (google.ca)</option>
+					<option value="ru">"RU" (google.ru)</option>
+					<option value="de">"DE" (google.de)</option>
+					<option value="fr">"FR" (google.fr)</option>
+					<option value="es">"ES" (google.es)</option>
+					<option value="it">"IT" (google.it)</option>
+					<option value="br">"BR" (google.com.br)</option>
+					<option value="au">"AU" (google.com.au)</option>
+					<option value="ar">"AR" (google.com.ar)</option>
+					<option value="br">"BR" (google.br)</option>
+					<option value="ch">"CH" (google.ch)</option>
+					<option value="dk">"DK" (google.dk)</option>
+					<option value="fi">"FI" (google.fi)</option>
+					<option value="hk">"HK" (google.com.hk)</option>
+					<option value="ie">"IE" (google.ie)</option>
+					<option value="il">"IL" (google.com.il)</option>
+					<option value="mx">"MX" (google.com.mx)</option>
+					<option value="nl">"NL" (google.nl)</option>
+					<option value="no">"NO" (google.no)</option>
+					<option value="pl">"PL" (google.pl)</option>
+					<option value="se">"SE" (google.se)</option>
+					<option value="sg">"SG" (google.com.sq)</option>
+					<option value="tr">"TR" (google.com.tr)</option>
+				</select>
+			</div>
+			<button class="btn btn-theme" ng-click="search()">Search...</button>
+			<p>
+				<small>Max API Units to be used: TBD<!--[[(relatedKeywords*20)+(relatedKeywords*20*10)+(relatedKeywords*20*20)]]--></small>
+			</p>
+	    </div>
+    </div>
+
+
+	<div class="row" ng-show="searching && !error_message">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>[[status_update]]</h2>
+		</div>
+	</div>
+
+	<div class="row" ng-show="error_message">
+		<div class="col-lg-8 col-lg-offset-2">
+			<p class="bg-danger">[[error_message]]</p>
+		</div>
+	</div>
+
+	<div class="row" ng-show="complete">
+		<div class="col-lg-8 col-lg-offset-2">
+		<h3>Top Related Keywords</h3>
+			<table class="table">
+				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
+				<tbody>
+					<tr ng-repeat="keyword in keywords">
+						<td>[[ getKey(keyword,"Keyword") ]]</td>
+						<td>[[ getKey(keyword,"Search Volume") ]]</td>
+						<td>[[ getKey(keyword,"CPC") ]]</td>
+						<td>[[ getKey(keyword,"Competition") ]]</td>
+						<td>[[ getKey(keyword,"Number of Results") ]]</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Domain Results</h3>
+			<table class="table">
+				<thead>
+					<tr><th>Domain</th><th>Organic Place</th><th>Buying AdWords</th></tr>
+				</thead>
+				<tbody>
+					<!--ng-class="{domain.paid:'bg-success'}"-->
+					<tr ng-repeat="domain in domains"><td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td><td>[[domain.position]]</td><td><span ng-show="domain.paid">YES</span></td></tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-theme" nqg-click="reset()">New Search</button>
+		</div>
+	</div>
+
+	<!-- Modal Structure -->
+	<div id="paid_modal" class="modal modal-fixed-footer">
+		<div class="modal-content">
+			<h4>[[selected.domain]]</h4>
+			<table class="table">
+				<thead><tr><th>Keyword</th><th>Position</th><th>CPC</th></tr></thead>
+				<tbody>
+					<tr ng-repeat="paid in selected.paiddetail">
+						<td>[[paid.Keyword]]</td>
+						<td>[[paid.Position]]</td>
+						<td>[[paid.CPC]]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="modal-footer">
+			<a class="modal-action modal-close waves-effect waves-green btn-flat " ng-click="closeData()">Close</a>
+		</div>
+	</div>
+
+</div>

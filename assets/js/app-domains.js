@@ -25,15 +25,11 @@ angular
 angular.module('SEMRushApp')
   .controller('SEMRushCtrl', ['$scope', function ($scope) {
 
-    $scope.keyword = "";
-    $scope.relatedKeywords = 1;
     $scope.semkey = "";
-    $scope.domains = {};
     $scope.domainArray = [];
     $scope.status_update = "";
     $scope.country = "us";
-    $scope.state = 0;
-
+    
     $scope.reset = function(){
       $scope.keyword = "";
       $scope.relatedKeywords = 1;
@@ -43,31 +39,21 @@ angular.module('SEMRushApp')
       $scope.complete = false;
       $scope.searching = false;
       $scope.doneSearching = false;
-      $scope.stage = 0;
     }
 
     $scope.search = function(){
       $scope.searching = true;
 
-      $scope.keywordsArr = [];
-
-      $scope.status_update = "Checking "+$scope.keyword.trim()+"...";
+      $scope.status_update = "Checking domains...";
       var check = encodeURIComponent($scope.keyword.trim().replace(" ","+"));
       
-      SEMRushKeyword(check);
-      /*
-      blockUI.message('Checking domains with Namecheap...'); 
-      blockUI.message('Getting TF/CF from Majestic...'); 
-      blockUI.message('Getting DA from MOZ ...'); 
-
-      $timeout(function() {
-        blockUI.stop(); 
-      }, 2000);
-      */
+      SEMRushDomains();
     }
 
-    function SEMRushKeyword(keyword){
-      $scope.stage = 1;
+    function SEMRushDomains(keyword){
+      
+      
+
       var newRequest = new xdRequest;
       console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database="+$scope.country);
