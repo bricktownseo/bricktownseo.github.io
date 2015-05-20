@@ -9,151 +9,128 @@
  * Main module of the application.
  */
 angular
-  .module('SEMRushApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ], function($interpolateProvider){
-    $interpolateProvider.startSymbol('[[');
-    $interpolateProvider.endSymbol(']]');
-  });
+    .module('SEMRushApp', [
+        'ngAnimate',
+        'ngCookies',
+        'ngResource',
+        'ngRoute',
+        'ngSanitize',
+        'ngTouch'
+    ], function($interpolateProvider) {
+        $interpolateProvider.startSymbol('[[');
+        $interpolateProvider.endSymbol(']]');
+    });
 
 
 angular.module('SEMRushApp')
-  .controller('SEMRushCtrl', ['$scope', function ($scope) {
+    .controller('SEMRushCtrl', ['$scope', function($scope) {
 
-    $scope.semkey = "";
-    $scope.domainArray = [];
-    $scope.status_update = "";
-    $scope.country = "us";
-    
-    $scope.reset = function(){
-      $scope.keyword = "";
-      $scope.relatedKeywords = 1;
-      $scope.domains = {};
-      $scope.domainArray = [];
-      $scope.status_update = "";
-      $scope.complete = false;
-      $scope.searching = false;
-      $scope.doneSearching = false;
-    }
+        $scope.reset = function() {
+            $scope.keyword = "";
+            $scope.relatedKeywords = 1;
+            $scope.domains = {};
+            $scope.domainArray = [];
+            $scope.complete = false;
+            $scope.searching = false;
+            $scope.status = "";
+            $scope.country = "us";
+        }
 
-    $scope.search = function(){
-      $scope.searching = true;
+        $scope.search = function() {
+            $scope.searching = true;
 
-      $scope.status_update = "Checking domains...";
-      var check = encodeURIComponent($scope.keyword.trim().replace(" ","+"));
-      
-      SEMRushDomains();
-    }
-
-    function SEMRushDomains(keyword){
-      
-      
-
-      var newRequest = new xdRequest;
-      console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
-      newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database="+$scope.country);
-      newRequest.get(function(response){
-        var keywords = SEMRushData(response.html);
-        $scope.$apply(function(){
-          $scope.keywords = keywords;
-        });
-        $scope.searching = false;
-        $scope.doneSearching = true;
-        $scope.complete = true;
-          
-        SEMRushOrganic();
-      });
-    }
-
-  function SEMRushOrganic(){
-    $scope.stage = 2;
-    if($scope.keywords.length>0){
-      for(var i = 0; i < $scope.keywords.length; i++){
-        $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
-        var newRequest = new xdRequest;
-        console.log("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database="+$scope.country);
-        newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database="+$scope.country);
-        newRequest.get(function(response){
-            var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
-            testKeyword = decodeURIComponent(testKeyword.substring(0,testKeyword.indexOf("&")));
+            $scope.status = "Checking Domains...";
             
-            var urls = SEMRushData(response.html);
-            for(var j = 10; j < urls.length; j++){
-              if($scope.domainArray.indexOf(urls[j]["Domain"])==-1){
-                $scope.domainArray.push(urls[j]["Domain"]);
-                $scope.domains[urls[j]["Domain"]] = {domain:urls[j]["Domain"],position:"("+(j+1)+") "+testKeyword};
-                SEMRushDomainAdwords(urls[j]["Domain"]);
-              }else{
-                $scope.domains[urls[j]["Domain"]].position = $scope.domains[urls[j]["Domain"]].position+"\n "+"("+(j+1)+") "+testKeyword;
+            SEMRushDomains();
+        }
+
+        function SEMRushDomains() {
+          $scope.domainArray = $scope.domains.split("\n");
+          $scope.domains = [];
+          for (var i = 0; i < $scope.domainArray.length; i++) {
+            if($scope.domainArray[i].trim().length>0){
+              var dom = $scope.domainArray[i].trim();
+              $scope.status = ('Checking domain '+dom+'...');
+              $scope.domains[dom] = {'domain': dom};
+              var newRequest = new xdRequest;
+              console.log("Domain search for "+dom);
+              console.log("http://api.semrush.com/?type=domain_rank&key=" + $scope.semkey + "&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+dom+"&database=" + $scope.country);
+              newRequest.setURL("http://api.semrush.com/?type=domain_rank&key=" + $scope.semkey + "&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+dom+"&database=" + $scope.country);
+              newRequest.get(function(response) {
+                var domaindata = SEMRushData(response.html);
+                console.log(domaindata);
+              });
+            }
+          }
+        }
+
+        function SEMRushDomain(domain) {
+            $scope.complete = true;
+            var newRequest = new xdRequest;
+            console.log("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=us");
+            newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.country);
+            newRequest.get(function(response) {
+                $scope.$apply(function() {
+                    var domaindata = SEMRushData(response.html);
+                    if (domaindata.length > 0) {
+                      //console.log(domaindata);
+                      console.log(domaindata[0]);
+                      $scope.domains[domaindata[0]["Domain"]]["paid"] = domaindata[0]["Adwords Cost"];
+                    }
+                    /*
+                    var domain = response.url.substring(response.url.indexOf("domain=") + 7);
+                    domain = domain.substring(0, domain.indexOf("&"))
+                    var domaindata = SEMRushData(response.html);
+                    console.log(domaindata);
+                    if (domaindata.length > 0) {
+                      $scope.domains[domain]["paid"] = domaindata[0]["Adwords Cost"];
+                    }
+                    */
+                });
+            });
+        }
+
+        function SEMRushData(data) {
+            var resp = [];
+
+            if (data.indexOf("ERROR") > -1 && data.indexOf("50")==-1) {
+                console.log(data);
+                $scope.status_update = data;
+                $scope.error_message = data;
+                return resp;
+            }
+            var lines = data.split("\n");
+            var headers = [];
+            if(lines.length>1){
+              for (var i = 0; i < lines.length; i++) {
+                  if (lines[i].trim().length > 0) {
+                      var vals = lines[i].trim().split(";");
+                      if (i == 0) {
+                          //Headers
+                          headers = vals;
+                      } else {
+                          var elem = {};
+                          for (var j = 0; j < headers.length; j++) {
+                              elem[headers[j]] = vals[j];
+                          }
+                          resp.push(elem);
+                      }
+                  }
               }
             }
-            for(var j = 0; j < 10 && j < urls.length; j++){
-              if($scope.domainArray.indexOf(urls[j]["Domain"])>=0){
-                $scope.domains[urls[j]["Domain"]].position = $scope.domains[urls[j]["Domain"]].position+"\n "+"("+(j+1)+") "+testKeyword;
-              } 
-            }
-          });
-      }
-    }
-  }
-
-  function SEMRushDomainAdwords(domain){
-    var newRequest = new xdRequest;
-    console.log("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database="+$scope.country);
-    newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database="+$scope.country);
-    newRequest.get(function(response){
-        $scope.$apply(function(){
-        var domain = response.url.substring(response.url.indexOf("domain=")+7);
-        domain = domain.substring(0,domain.indexOf("&"))
-        var paid = SEMRushData(response.html);
-        if(paid.length>0){
-          $scope.domains[domain]["paid"] = true;
+            return resp;
         }
-      });
-    });
-  }
 
-  function SEMRushData(data){
-    var resp = [];
-    
-    if(data.indexOf("ERROR")>-1){
-      console.log(data);
-      $scope.status_update = data;
-      $scope.error_message = data;
-      return resp;
-    }
-    var lines = data.split("\n");
-    var headers = [];
-
-    for(var i = 0; i < lines.length; i++){
-      if(lines[i].trim().length>0){
-        var vals = lines[i].trim().split(";");
-        if(i==0){
-          //Headers
-          headers = vals;
-        }else{
-          var elem = {};
-          for(var j = 0; j < headers.length; j++){
-            elem[headers[j]] = vals[j];
-          }
-          resp.push(elem);
+        $scope.dump = function() {
+            console.log($scope);
         }
-      }
-    }
-    return resp;
-  }
 
-  $scope.dump = function(){
-    console.log($scope);
-  }
+        $scope.getKey = function(arr, key) {
+            return arr[key];
+        }
 
-  $scope.getKey = function(arr,key){
-    return arr[key];
-  }
 
-  }]);
+        $scope.semkey = "";
+        $scope.reset();
+
+    }]);
