@@ -64,7 +64,6 @@ angular.module('SEMRushApp')
         }
 
         function SEMRushOrganic() {
-            $scope.complete = true;
             if ($scope.keywords.length > 0) {
                 for (var i = 0; i < $scope.keywords.length; i++) {
                     $scope.status = ('Checking domains for keyword ' + $scope.keywords[i].Keyword + '...');
@@ -100,6 +99,7 @@ angular.module('SEMRushApp')
         }
 
         function SEMRushDomain(domain) {
+            $scope.complete = true;
             var newRequest = new xdRequest;
             console.log("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=us");
             newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.country);
