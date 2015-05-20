@@ -105,13 +105,17 @@ angular.module('SEMRushApp')
             newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.country);
             newRequest.get(function(response) {
                 $scope.$apply(function() {
+                    console.log(domaindata);
+                    console.log(domaindata[0]);
+                    /*
                     var domain = response.url.substring(response.url.indexOf("domain=") + 7);
                     domain = domain.substring(0, domain.indexOf("&"))
                     var domaindata = SEMRushData(response.html);
                     console.log(domaindata);
-                    //if (paid.length > 0) {
-                    //    $scope.domains[domain]["paid"] = true;
-                    //}
+                    if (domaindata.length > 0) {
+                      $scope.domains[domain]["paid"] = domaindata[0]["Adwords Cost"];
+                    }
+                    */
                 });
             });
         }
