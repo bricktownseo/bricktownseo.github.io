@@ -33,6 +33,7 @@ angular.module('SEMRushApp')
     $scope.domainArray = [];
     $scope.status_update = "";
     $scope.country = "us";
+    $scope.state = 0;
 
     $scope.reset = function(){
       $scope.keyword = "";
@@ -44,6 +45,7 @@ angular.module('SEMRushApp')
       $scope.complete = false;
       $scope.searching = false;
       $scope.doneSearching = false;
+      $scope.stage = 0;
     }
 
     $scope.search = function(){
@@ -67,6 +69,7 @@ angular.module('SEMRushApp')
     }
 
     function SEMRushKeyword(keyword){
+      $scope.stage = 1;
       var newRequest = new xdRequest;
       console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=us");
       newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase="+keyword+"&key="+$scope.semkey+"&display_limit="+$scope.relatedKeywords+"&export_columns=Ph,Nq,Cp,Co,Nr,Td&database="+$scope.country);
@@ -84,6 +87,7 @@ angular.module('SEMRushApp')
     }
 
   function SEMRushOrganic(){
+    $scope.stage = 2;
     if($scope.keywords.length>0){
       for(var i = 0; i < $scope.keywords.length; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
@@ -116,6 +120,7 @@ angular.module('SEMRushApp')
 
   function SEMRushDomainAdwords(domain){
     var newRequest = new xdRequest;
+    console.log("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database="+$scope.country);
     newRequest.setURL("http://api.semrush.com/?type=domain_adwords&key="+$scope.semkey+"&display_limit=1&export_columns=Ph,Po,Pp,Pd,Nq,Cp,Vu,Tr,Tc,Co,Nr,Td&domain="+encodeURIComponent(domain)+"&display_sort=po_asc&database="+$scope.country);
     newRequest.get(function(response){
         $scope.$apply(function(){
@@ -134,9 +139,8 @@ angular.module('SEMRushApp')
     
     if(data.indexOf("ERROR")>-1){
       console.log(data);
-      $scope.status_update = "Error checking the keyword";
+      $scope.status_update = data;
       $scope.error_message = data;
-      
       return resp;
     }
     var lines = data.split("\n");

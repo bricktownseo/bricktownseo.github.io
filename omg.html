@@ -105,7 +105,7 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 		</div>
 	</div>
 
-	<div class="row" ng-show="complete && !error_message">
+	<div class="row" ng-show="complete">
 		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Top Related Keywords</h3>
 			<table class="table">
@@ -126,12 +126,13 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 					<tr><th>Domain</th><th>Organic Place</th><th>Buying AdWords</th></tr>
 				</thead>
 				<tbody>
-					<tr ng-class="{domain.paid:'bg-success'}" ng-repeat="domain in domains"><td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td><td>[[domain.position]]</td><td><span ng-show="domain.paid">YES</span></td></tr>
+					<!--ng-class="{domain.paid:'bg-success'}"-->
+					<tr ng-repeat="domain in domains"><td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td><td>[[domain.position]]</td><td><span ng-show="domain.paid">YES</span></td></tr>
 				</tbody>
 			</table>
 		</div>
 		<div class="col-lg-2">
-			<button class="btn btn-theme" ng-click="reset()">New Search</button>
+			<button class="btn btn-theme" nqg-click="reset()">New Search</button>
 		</div>
 	</div>
 
