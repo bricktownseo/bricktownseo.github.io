@@ -106,8 +106,11 @@ angular.module('SEMRushApp')
             newRequest.get(function(response) {
                 $scope.$apply(function() {
                     var domaindata = SEMRushData(response.html);
-                    console.log(domaindata);
-                    console.log(domaindata[0]);
+                    if (domaindata.length > 0) {
+                      console.log(domaindata);
+                      console.log(domaindata[0]);
+                      $scope.domains[domaindata[0]["Domain"]]["paid"] = domaindata[0]["Adwords Cost"];
+                    }
                     /*
                     var domain = response.url.substring(response.url.indexOf("domain=") + 7);
                     domain = domain.substring(0, domain.indexOf("&"))
