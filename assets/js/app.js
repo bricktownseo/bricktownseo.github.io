@@ -27,7 +27,6 @@ angular.module('SEMRushApp')
 
     $scope.keyword = "";
     $scope.relatedKeywords = 1;
-    $scope.city = "";
     $scope.semkey = "";
     $scope.domains = {};
     $scope.domainArray = [];
@@ -38,7 +37,6 @@ angular.module('SEMRushApp')
     $scope.reset = function(){
       $scope.keyword = "";
       $scope.relatedKeywords = 1;
-      $scope.city = "";
       $scope.domains = {};
       $scope.domainArray = [];
       $scope.status_update = "";
@@ -53,8 +51,8 @@ angular.module('SEMRushApp')
 
       $scope.keywordsArr = [];
 
-      $scope.status_update = "Checking "+$scope.city+" "+$scope.keyword.trim()+"...";
-      var check = encodeURIComponent(($scope.city+" "+$scope.keyword.trim()).replace(" ","+"));
+      $scope.status_update = "Checking "+$scope.keyword.trim()+"...";
+      var check = encodeURIComponent($scope.keyword.trim().replace(" ","+"));
       
       SEMRushKeyword(check);
       /*
