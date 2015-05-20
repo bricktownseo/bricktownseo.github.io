@@ -88,6 +88,7 @@ angular.module('SEMRushApp')
       for(var i = 0; i < $scope.keywords.length; i++){
         $scope.status_update = ('Checking domains for keyword '+$scope.keywords[i].Keyword+'...'); 
         var newRequest = new xdRequest;
+        console.log("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database="+$scope.country);
         newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key="+$scope.semkey+"&display_limit=20&export_columns=Dn,Ur&phrase="+encodeURIComponent($scope.keywords[i].Keyword)+"&database="+$scope.country);
         newRequest.get(function(response){
             var testKeyword = response.url.substring(response.url.indexOf("phrase=")+7);
