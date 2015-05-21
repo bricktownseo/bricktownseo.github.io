@@ -28,6 +28,7 @@ angular.module('SEMRushApp')
         $scope.reset = function() {
             $scope.keyword = "";
             $scope.relatedKeywords = 1;
+            $scope.domainList = "":
             $scope.domains = {};
             $scope.domainArray = [];
             $scope.complete = false;
@@ -45,8 +46,8 @@ angular.module('SEMRushApp')
         }
 
         function SEMRushDomains() {
-          $scope.domainArray = $scope.domains.split("\n");
-          $scope.domains = [];
+          $scope.domainArray = $scope.domainList.trim().split("\n");
+          $scope.domains = {};
           for (var i = 0; i < $scope.domainArray.length; i++) {
             if($scope.domainArray[i].trim().length>0){
               var dom = $scope.domainArray[i].trim();
