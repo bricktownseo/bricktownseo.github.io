@@ -62,7 +62,9 @@ angular.module('SEMRushApp')
                 var domaindata = SEMRushData(response.html);
                 console.log(domaindata);
                 if(domaindata.length>0){
-                  $scope.domains[domaindata[0].Domain] = domaindata[0];
+                  $scope.$apply(function(){
+                    $scope.domains[domaindata[0].Domain] = domaindata[0];
+                  });
                 }
               });
             }
