@@ -58,10 +58,11 @@ angular.module('SEMRushApp')
               console.log("http://api.semrush.com/?type=domain_rank&key=" + $scope.semkey + "&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+dom+"&database=" + $scope.country);
               newRequest.setURL("http://api.semrush.com/?type=domain_rank&key=" + $scope.semkey + "&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+dom+"&database=" + $scope.country);
               newRequest.get(function(response) {
+                $scope.complete = true;
                 var domaindata = SEMRushData(response.html);
                 console.log(domaindata);
                 if(domaindata.length>0){
-                  domain[domaindata[0].Domain] = domaindata[0];
+                  $scope.domains[domaindata[0].Domain] = domaindata[0];
                 }
               });
             }
