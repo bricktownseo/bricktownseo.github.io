@@ -28,7 +28,7 @@ angular.module('SEMRushApp')
         $scope.reset = function() {
             $scope.keyword = "";
             $scope.relatedKeywords = 1;
-            $scope.domainList = "":
+            $scope.domainList = "";
             $scope.domains = {};
             $scope.domainArray = [];
             $scope.complete = false;
