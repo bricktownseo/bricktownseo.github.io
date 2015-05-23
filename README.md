@@ -1,4 +1,4 @@
-Solid. A Bootstrap theme for Jekyll.
+[SEO in Oklahoma City](https://www.facebook.com/bricktownseo)
 ============
 ![Screenshot](https://st4ple.github.io/solid-jekyll/assets/img/browser.png)
 
