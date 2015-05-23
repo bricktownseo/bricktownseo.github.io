@@ -7,6 +7,8 @@ This is a [Jekyll](http://jekyllrb.com/) port of the [Solid theme](http://www.bl
 ##Usage
 This theme can be customized, built and published straight from GitHub, thanks to [GitHub Pages](https://pages.github.com/). A local installation of Jekyll isn't even necessary!
 
+[Oklahoma City SEO Youtube Video](http://www.youtube.com/watch?v=Ce97oc7sCHs)
+
 [Fork this repository](https://github.com/st4ple/solid-jekyll/fork) to get started. 
 ####Customize  
 Most general settings and data like site name, colors, address, etc. can be configured and changed right in the main config file: `/_config.yml`
