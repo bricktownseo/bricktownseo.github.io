@@ -32,13 +32,23 @@ seodesc: This page is intended to be used for OMGers who are looking at how to u
 			</div>
     	</div>
     </div>
-    <div class="row" ng-show="!searching">
-    	<div class="col-lg-8 col-lg-offset-2">
+    <div class="row">
+    	<div class = "col-lg-4">
 			<div class="form-group">
 				<label for="sem">SEM Rush Key</label>
-				<input type="text" id="sem" ng-model="semkey">
+				<input type="text" id="sem" ng-model="semkey" class="form-control">
 				<a href="http://www.semrush.com/api-use/" target="_blank"><small>Gey Key</small></a>
 			</div>
+
+
+    	</div>
+    </div>
+
+
+
+    <div class="row" ng-show="!searching">
+    	<div class="col-lg-8 col-lg-offset-2">
+			
 			<div class="form-group">
 				<label for="keyword">Keyword</label>
 				<input type="text" class="form-control" id="keyword" ng-model="keyword">
