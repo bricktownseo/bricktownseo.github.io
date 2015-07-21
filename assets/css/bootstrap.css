@@ -2542,9 +2542,13 @@ output {
   line-height: 1.42857143;
   color: #555;
 }
+
+
+
+
 .form-control {
   display: block;
-  width: 100%;
+  width: 75%;
   height: 34px;
   padding: 6px 12px;
   font-size: 14px;
