@@ -50,8 +50,10 @@ angular.module('SEMRushApp')
 
         $scope.storeKey = function() {
             
-            console.log("Summit");
-            console.log($scope.store);
+            
+            if ($scope.store){
+                $window.localStorage = $scope.semkey;
+            }
 
 
         }
