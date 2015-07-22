@@ -53,12 +53,12 @@ angular.module('SEMRushApp')
             
             if ($scope.store){
                 $window.localStorage['semkey'] = $scope.semkey;
-                $window.localStorage['checkedOrNot'] = true;
+                
             }
             else
             {
                 $window.localStorage.removeItem('semkey');
-                $window.localStorage['checkedOrNot'] = false;
+                
             }
                 
 
@@ -180,9 +180,10 @@ angular.module('SEMRushApp')
         }
 
 
-        $scope.semkey = $window.localStorage['semkey'];
+        $scope.semkey = $window.localStorage['semkey'] || "";
+
         $scope.store = $window.localStorage['semkey'] != undefined;
-        console.log($window.localStorage['semkey']);
         $scope.reset();
+
 
     }]);
