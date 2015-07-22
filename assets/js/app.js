@@ -174,7 +174,7 @@ angular.module('SEMRushApp')
         }
 
 
-        $scope.semkey = "";
+        $scope.semkey = ttry;
         $scope.reset();
 
     }]);
