@@ -52,7 +52,7 @@ angular.module('SEMRushApp')
             
             
             if ($scope.store){
-                $window.localStorage['ttry'] = $scope.semkey;
+                $window.localStorage['semkey'] = $scope.semkey;
             }
 
 
@@ -174,7 +174,7 @@ angular.module('SEMRushApp')
         }
 
 
-        $scope.semkey = ttry;
+        $scope.semkey = $window.localStorage['semkey'];
         $scope.reset();
 
     }]);
