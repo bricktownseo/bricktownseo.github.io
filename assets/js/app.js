@@ -23,7 +23,7 @@ angular
 
 
 angular.module('SEMRushApp')
-    .controller('SEMRushCtrl', ['$scope', function($scope) {
+    .controller('SEMRushCtrl', ['$scope', '$window', function($scope, $window) {
 
         $scope.reset = function() {
             $scope.keyword = "";
@@ -45,6 +45,15 @@ angular.module('SEMRushApp')
             var check = encodeURIComponent($scope.keyword.trim().replace(" ", "+"));
 
             SEMRushKeyword(check);
+        }
+
+
+        $scope.storeKey = function() {
+            
+            console.log($scope.store)
+
+
+
         }
 
         function SEMRushKeyword(keyword) {
