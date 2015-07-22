@@ -50,8 +50,8 @@ angular.module('SEMRushApp')
 
         $scope.storeKey = function() {
             
-            console.log($scope.store)
-
+            console.log("Summit");
+            console.log($scope.store);
 
 
         }
