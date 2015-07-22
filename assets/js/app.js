@@ -54,6 +54,8 @@ angular.module('SEMRushApp')
             if ($scope.store){
                 $window.localStorage['semkey'] = $scope.semkey;
             }
+            else
+                $window.localStorage['semkey'] = "";
 
 
         }
