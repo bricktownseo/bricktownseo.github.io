@@ -53,6 +53,7 @@ angular.module('SEMRushApp')
             
             if ($scope.store){
                 $window.localStorage['semkey'] = $scope.semkey;
+
                 
             }
             else
@@ -179,9 +180,9 @@ angular.module('SEMRushApp')
             return arr[key];
         }
 
+        $window.localStorage['semkey'] == undefined ? $scope.semkey = "" : $scope.semkey = $window.localStorage['semkey'];
 
-        $scope.semkey = $window.localStorage['semkey'] || "";
-
+        // $scope.semkey = $window.localStorage['semkey'];
         $scope.store = $window.localStorage['semkey'] != undefined;
         $scope.reset();
 
