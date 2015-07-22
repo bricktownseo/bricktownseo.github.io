@@ -182,6 +182,7 @@ angular.module('SEMRushApp')
 
         $scope.semkey = $window.localStorage['semkey'];
         $scope.store = $window.localStorage['semkey'] !== null;
+        console.log($window.localStorage['semkey']);
         $scope.reset();
 
     }]);
