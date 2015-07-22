@@ -181,8 +181,7 @@ angular.module('SEMRushApp')
 
 
         $scope.semkey = $window.localStorage['semkey'];
-        $scope.checkedOrNot = $window.localStorage['checkedOrNot']
-
+        $scope.store = $window.localStorage['checkedOrNot']
         $scope.reset();
 
     }]);
