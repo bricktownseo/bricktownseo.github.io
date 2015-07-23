@@ -47,21 +47,25 @@ angular.module('SEMRushApp')
             SEMRushKeyword(check);
         }
 
-
+        //store value in local storage so that it can be reloaded again
         $scope.storeKey = function() {
-            
-            
             if ($scope.store){
-                $window.localStorage['semkey'] = $scope.semkey;
-
-                
+                $window.localStorage['semkey'] = $scope.semkey;  
             }
             else
             {
-                $window.localStorage.removeItem('semkey');
-                
+                $window.localStorage.removeItem('semkey');   
             }
-                
+        }
+
+        $scope.onChange = function () {
+                $window.localStorage['semkey'] = $scope.semkey;
+            }
+
+
+
+
+
 
         }
 
