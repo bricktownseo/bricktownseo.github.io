@@ -70,8 +70,6 @@ angular.module('SEMRushApp')
             } */
 
 
-        }
-
         function SEMRushKeyword(keyword) {
             var newRequest = new xdRequest;
             console.log("Requesting Phrase Related Keywords");
