@@ -70,10 +70,6 @@ angular.module('SEMRushApp')
             } */
 
 
-
-
-
-
         }
 
         function SEMRushKeyword(keyword) {
