@@ -58,6 +58,7 @@ angular.module('SEMRushApp')
             }
         }
 
+        //store value in local storage as user types
         $scope.onChange = function () {
             if ($scope.semkey){
                 $window.localStorage['semkey'] = $scope.semkey;  
