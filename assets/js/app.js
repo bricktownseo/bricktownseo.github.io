@@ -58,7 +58,7 @@ angular.module('SEMRushApp')
             }
         }
 
-        /* $scope.onChange = function () {
+        $scope.onChange = function () {
             if ($scope.store){
                 $window.localStorage['semkey'] = $scope.semkey;  
             }
@@ -67,7 +67,7 @@ angular.module('SEMRushApp')
                 $window.localStorage.removeItem('semkey');   
             }
 
-            } */
+            }
 
 
         function SEMRushKeyword(keyword) {
