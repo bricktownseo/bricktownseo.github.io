@@ -59,12 +59,8 @@ angular.module('SEMRushApp')
         }
 
         $scope.onChange = function () {
-            if ($scope.store){
+            if ($scope.semkey != undefined){
                 $window.localStorage['semkey'] = $scope.semkey;  
-            }
-            else
-            {
-                $window.localStorage.removeItem('semkey');   
             }
 
             }
