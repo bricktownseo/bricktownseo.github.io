@@ -47,7 +47,7 @@ angular.module('SEMRushApp')
             SEMRushKeyword(check);
         }
 
-        //store value in local storage so that it can be reloaded again
+        //store value in local storage so that it can be reloaded agai
         $scope.storeKey = function() {
             if ($scope.store){
                 $window.localStorage['semkey'] = $scope.semkey;  
