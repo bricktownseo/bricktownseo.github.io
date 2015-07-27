@@ -146,7 +146,7 @@ angular.module('SEMRushApp')
         function SEMRushData(data) {
             var resp = [];
 
-            if (data.indexOf("ERROR") > -1 || data.indexOf("50")==-1) {
+            if (data.indexOf("ERROR") > -1 && data.indexOf("50")==-1) {
                 console.log(data);
                 $scope.status_update = data;
                 $scope.error_message = data;
