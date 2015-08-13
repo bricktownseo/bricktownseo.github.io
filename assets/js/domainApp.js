@@ -23,7 +23,7 @@ angular
 
 
 angular.module('DomainApp')
-    .controller('DomainCtrl', ['$scope', '$window', function($scope, $window) {
+    .controller('DomainCtrl', ['$scope', '$window', '$http', function($scope, $window, $http) {
 
         $scope.reset = function() {
             $scope.keywords = "";
