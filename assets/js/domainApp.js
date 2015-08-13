@@ -32,14 +32,27 @@ angular.module('DomainApp')
 
         $scope.search = function() {
         	//https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=edmond%20dentist&start=4
+            if($scope.domain.length == 0){
+            	alert('Please enter a domain.');
+            	return;
+            }else if($scope.keywords.trim().length() == 0){
+            	alert('Please enter keyword(s)');
+            	return;
+            }
+
             $scope.searching = true;
 
-            $scope.keywordsArr = [];
+            //Split Keywords
+            $scope.keywordArr = $scope.keywords.split("\n");
 
-            $scope.status = "Checking " + $scope.keyword.trim() + "...";
-            var check = encodeURIComponent($scope.keyword.trim().replace(" ", "+"));
-
-            SEMRushKeyword(check);
+			window.setTimeout(function(){
+				for(var i = 0; i < $scope.keywordArr.length(); i++){
+					//Get Position of DOMAIN
+					int start = 0;
+					var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
+					console.log(url);
+				}
+			},0);
         }
 
         //store value in local storage so that it can be reloaded agai
