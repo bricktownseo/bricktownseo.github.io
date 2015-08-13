@@ -48,37 +48,41 @@ angular.module('DomainApp')
 			window.setTimeout(function(){
 				for(var i = 0; i < $scope.keywordArr.length; i++){
 					//Get Position of DOMAIN
-					var start = 0;
 					var keyword = $scope.keywordArr[i].trim();
 					$scope.keywordCheck = [];
 					if(keyword.length > 0){
 						$scope.$apply(function(){
-							$scope.keywordCheck[keyword] ={
+							$scope.keywordCheck.push({
 								'keyword': keyword,
 								'position': '',
-							};
+							});
 						});
-						var url = "https://ajax.googleapis.com/ajax/services/search/web?callback=JSON_CALLBACK&v=1.0&q="+$scope.keywordArr[i]+"&start="+start
-						$http({
-							method:'JSONP',
-							url: url
-						}).success(function(status) {
-			                //your code when success
-			            	console.log(status);
-			            	var found = false;
-			            	for(var x = 0; x < status.responseData.results.length && !found; x++){
-			            		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
-			            			found = true;
-			            			$scope.keywordCheck[keyword].position = x+1;
-			            		}
-			            	}
-			            }).error(function(status) {
-			               //your code when fails
-			               	console.log(status);
-			            });
+						int index = $scope.keywordCheck.length-1;
+						keywordSearch(keyword, 0, index);
 					}
 				}
 			},0);
+        }
+
+        function keywordSearch(keyword, start, index){
+        	var url = "https://ajax.googleapis.com/ajax/services/search/web?callback=JSON_CALLBACK&v=1.0&q="+keyword+"&start="+start
+			$http({
+				method:'JSONP',
+				url: url
+			}).success(function(status) {
+                //your code when success
+            	console.log(status);
+            	var found = false;
+            	for(var x = 0; x < status.responseData.results.length && !found; x++){
+            		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
+            			found = true;
+            			$scope.keywordCheck[index].position = x+1;
+            		}
+            	}
+            }).error(function(status) {
+               //your code when fails
+               	console.log(status);
+            });
         }
 
         //store value in local storage so that it can be reloaded agai
