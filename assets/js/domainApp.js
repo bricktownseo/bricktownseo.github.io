@@ -59,14 +59,16 @@ angular.module('DomainApp')
 							});
 						});
 						var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
-						console.log(url);
 						$http({
 							method:'JSONP',
 							url: url
-						}).then(function(data){
-							console.log(data);
-							//console.log(JSON.parse(data));
-						});
+						}).success(function(status) {
+			                //your code when success
+			            	console.log(status);
+			            }).error(function(status) {
+			               //your code when fails
+			               	console.log(status);
+			            });
 					}
 				}
 			},0);
