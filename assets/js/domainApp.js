@@ -60,7 +60,10 @@ angular.module('DomainApp')
 						});
 						var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
 						console.log(url);
-						$http.get(url).then(function(data){
+						$http({
+							method:'JSONP',
+							url: url
+						}).then(function(data){
 							console.log(data);
 							console.log(JSON.parse(data));
 						});
