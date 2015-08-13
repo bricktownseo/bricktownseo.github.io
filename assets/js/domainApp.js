@@ -53,10 +53,10 @@ angular.module('DomainApp')
 					$scope.keywordCheck = [];
 					if(keyword.length > 0){
 						$scope.$apply(function(){
-							$scope.keywordCheck.push({
+							$scope.keywordCheck[keyword] ={
 								'keyword': keyword,
-								'position': -1,
-							});
+								'position': '',
+							};
 						});
 						var url = "https://ajax.googleapis.com/ajax/services/search/web?callback=JSON_CALLBACK&v=1.0&q="+$scope.keywordArr[i]+"&start="+start
 						$http({
@@ -65,6 +65,13 @@ angular.module('DomainApp')
 						}).success(function(status) {
 			                //your code when success
 			            	console.log(status);
+			            	var found = false;
+			            	for(var x = 0; x < status.responseData.results.length && !found; x++){
+			            		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
+			            			found = true;
+			            			$scope.keywordCheck[keyword].position = x+1;
+			            		}
+			            	}
 			            }).error(function(status) {
 			               //your code when fails
 			               	console.log(status);

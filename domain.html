@@ -24,11 +24,13 @@ seodesc: I don't know what it does.
 	<div class="row" ng-show="searching">
 		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Keyword Placement - [[ domain ]]</h3>
+		[[keywordCheck]]
 			<table class="table">
-				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
+				<thead><tr><th>Keyword</th><th>Position</th></tr></thead>
 				<tbody>
 					<tr ng-repeat="keyword in keywordCheck">
-						<td>[[ keyword ]]</td>
+						<td>[[ keyword.keyword ]]</td>
+						<td> [[ keyword.position ]] </td>
 					</tr>
 				</tbody>
 			</table>
