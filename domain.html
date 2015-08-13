@@ -8,33 +8,22 @@ seodesc: I don't know what it does.
 <div class="container mtb" ng-app="DomainApp" ng-controller="DomainCtrl">
     <div class="row" ng-show="!searching">
     	<div class="col-lg-4 col-lg-offset-2">
-    		<label for="domain">Domain</label>
-    		<input type="text" class="form-control" id="domain" ng-model="domain" />
+    		<div class="form-group">
+    			<label for="domain">Domain</label>
+    			<input type="text" class="form-control" id="domain" ng-model="domain" />
+    		</div>
+			<button class="btn btn-theme" ng-click="search()">Search Domains...</button>
     	</div>
     	<div class="col-lg-6">
 			<div class="form-group">
-				<label for="keyword">Keyword<s/label>
-				<input type="text" class="form-control" id="keyword" ng-model="keyword">
-				<small>Example: "mesa lawyers" or "edmond dentist"</small>
+				<label for="keyword">Keyword</label>
+				<textarea class="form-control" rows="3"></textarea>
 			</div>
-			<button class="btn btn-theme" ng-click="search()">Search...</button>
 	    </div>
     </div>
 	<div class="row" ng-show="searching">
 		<div class="col-lg-8 col-lg-offset-2">
-			<h2>[[status]]</h2>
-		</div>
-	</div>
-
-	<div class="row" ng-show="error_message">
-		<div class="col-lg-8 col-lg-offset-2">
-			<p class="bg-danger">[[error_message]]</p>
-		</div>
-	</div>
-
-	<div class="row" ng-show="complete">
-		<div class="col-lg-8 col-lg-offset-2">
-		<h3>Top Related Keywords</h3>
+		<h3>Keyword Placement</h3>
 			<table class="table">
 				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
 				<tbody>
