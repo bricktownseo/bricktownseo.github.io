@@ -24,30 +24,12 @@ seodesc: I don't know what it does.
 	<div class="row" ng-show="searching">
 		<div class="col-lg-8 col-lg-offset-2">
 		<h3>Keyword Placement</h3>
-		{{keywordCheck}}
+		[[ keywordCheck ]]
 			<table class="table">
 				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
 				<tbody>
-					<tr ng-repeat="keyword in keywords">
-						<td>[[ getKey(keyword,"Keyword") ]]</td>
-						<td>[[ getKey(keyword,"Search Volume") ]]</td>
-						<td>[[ getKey(keyword,"CPC") ]]</td>
-						<td>[[ getKey(keyword,"Competition") ]]</td>
-						<td>[[ getKey(keyword,"Number of Results") ]]</td>
-					</tr>
-				</tbody>
-			</table>
-			<h3>Domain Results</h3>
-			<table class="table">
-				<thead>
-					<tr><th>Domain</th><th>Organic Place</th><th>Estimated AdWords</th></tr>
-				</thead>
-				<tbody>
-					<!--ng-class="{domain.paid:'bg-success'}"-->
-					<tr ng-repeat="domain in domains">
-						<td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td>
-						<td>[[domain.position]]</td>
-						<td><span ng-show="domain.paid > 0">[[domain.paid | currency]]</span></td>
+					<tr ng-repeat="keyword in keywordCheck">
+						<td>[[ keyword ]]</td>
 					</tr>
 				</tbody>
 			</table>
