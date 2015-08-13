@@ -65,7 +65,7 @@ angular.module('DomainApp')
 							url: url
 						}).then(function(data){
 							console.log(data);
-							console.log(JSON.parse(data));
+							//console.log(JSON.parse(data));
 						});
 					}
 				}
