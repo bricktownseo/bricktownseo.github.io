@@ -58,7 +58,7 @@ angular.module('DomainApp')
 								'position': -1,
 							});
 						});
-						var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
+						var url = "https://ajax.googleapis.com/ajax/services/search/web?callback=JSON_CALLBACK&v=1.0&q="+$scope.keywordArr[i]+"&start="+start
 						$http({
 							method:'JSONP',
 							url: url
