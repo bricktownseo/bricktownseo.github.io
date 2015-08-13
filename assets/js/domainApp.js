@@ -35,7 +35,7 @@ angular.module('DomainApp')
             if($scope.domain.length == 0){
             	alert('Please enter a domain.');
             	return;
-            }else if($scope.keywords.trim().length() == 0){
+            }else if($scope.keywords.trim().length == 0){
             	alert('Please enter keyword(s)');
             	return;
             }
@@ -46,11 +46,19 @@ angular.module('DomainApp')
             $scope.keywordArr = $scope.keywords.split("\n");
 
 			window.setTimeout(function(){
-				for(var i = 0; i < $scope.keywordArr.length(); i++){
+				for(var i = 0; i < $scope.keywordArr.length; i++){
 					//Get Position of DOMAIN
 					var start = 0;
-					var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
-					console.log(url);
+					var keyword = $scope.keywordArr[i].trim();
+					$scope.keywordCheck = [];
+					if(keyword.length > 0){
+						var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
+						console.log(url);
+						$scope.keywordCheck.push({
+							'keyword': keyword,
+							'position': -1,
+						});
+					}
 				}
 			},0);
         }
