@@ -54,9 +54,11 @@ angular.module('DomainApp')
 					if(keyword.length > 0){
 						var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
 						console.log(url);
-						$scope.keywordCheck.push({
-							'keyword': keyword,
-							'position': -1,
+						$scope.$apply(function(){
+							$scope.keywordCheck.push({
+								'keyword': keyword,
+								'position': -1,
+							});
 						});
 					}
 				}
