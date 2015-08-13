@@ -48,7 +48,7 @@ angular.module('DomainApp')
 			window.setTimeout(function(){
 				for(var i = 0; i < $scope.keywordArr.length(); i++){
 					//Get Position of DOMAIN
-					int start = 0;
+					var start = 0;
 					var url = "https://ajax.googleapis.com/ajax/services/search/web?v=1.0&q="+$scope.keywordArr[i]+"&start="+start
 					console.log(url);
 				}
