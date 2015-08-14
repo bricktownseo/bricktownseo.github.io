@@ -50,16 +50,16 @@ angular.module('DomainApp')
 					//Get Position of DOMAIN
 					var keyword = $scope.keywordArr[i].trim();
 					$scope.keywordCheck = [];
-					if(keyword.length > 0){
-						$scope.$apply(function(){
+					//if(keyword.length > 0){
+						// $scope.$apply(function(){
 							$scope.keywordCheck.push({
 								'keyword': keyword,
 								'position': '',
 							});
-						});
-						var index = $scope.keywordCheck.length-1;
-						keywordSearch(keyword, 0, index);
-					}
+						//});
+						//var index = $scope.keywordCheck.length-1;
+						keywordSearch(keyword, 0, i);
+					//}
 				}
 			},0);
         }
