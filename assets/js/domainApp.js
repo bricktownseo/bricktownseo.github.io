@@ -79,7 +79,7 @@ angular.module('DomainApp')
             			$scope.keywordCheck[index].position = x+1+start;
             		}
             	}
-                if (start < 50) {
+                if (!found && start < 50) {
                     keywordSearch(keyword,start+4, index);
 
                 } else {
