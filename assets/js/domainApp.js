@@ -76,9 +76,16 @@ angular.module('DomainApp')
             	for(var x = 0; x < status.responseData.results.length && !found; x++){
             		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
             			found = true;
-            			$scope.keywordCheck[index].position = x+1;
+            			$scope.keywordCheck[index].position = x+1+start;
             		}
             	}
+                if (start < 50) {
+                    keywordSearch(keyword,start+4, index);
+
+                } else {
+                    $scope.keywordCheck[index].position = "n/a";
+
+                }
             }).error(function(status) {
                //your code when fails
                	console.log(status);
