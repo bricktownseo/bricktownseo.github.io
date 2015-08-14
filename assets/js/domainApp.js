@@ -82,9 +82,8 @@ angular.module('DomainApp')
                 if (!found && start < 50) {
                     keywordSearch(keyword,start+4, index);
 
-                } else {
+                } else if (!found) {
                     $scope.keywordCheck[index].position = "n/a";
-
                 }
             }).error(function(status) {
                //your code when fails
