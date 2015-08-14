@@ -52,10 +52,10 @@ angular.module('DomainApp')
 					$scope.keywordCheck = [];
 					//if(keyword.length > 0){
 						// $scope.$apply(function(){
-							$scope.keywordCheck.push({
-								'keyword': keyword,
-								'position': '',
-							});
+							// $scope.keywordCheck.push({
+							// 	'keyword': keyword,
+							// 	'position': '',
+							// });
 						//});
 						//var index = $scope.keywordCheck.length-1;
 						keywordSearch(keyword, 0, i);
@@ -76,14 +76,20 @@ angular.module('DomainApp')
             	for(var x = 0; x < status.responseData.results.length && !found; x++){
             		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
             			found = true;
-            			$scope.keywordCheck[index].position = x+1+start;
+            			$scope.keywordCheck[index]={
+                                'keyword': keyword,
+                                'position': x+1+start
+                            };//.position = x+1+start;
             		}
             	}
                 if (!found && start < 50) {
                     keywordSearch(keyword,start+4, index);
 
                 } else if (!found) {
-                    $scope.keywordCheck[index].position = "n/a";
+                    $scope.keywordCheck[index] = {
+                                'keyword': keyword,
+                                'position': "n/a"
+                            };
                 }
             }).error(function(status) {
                //your code when fails
