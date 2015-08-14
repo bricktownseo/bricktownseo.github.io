@@ -57,7 +57,7 @@ angular.module('DomainApp')
 								'position': '',
 							});
 						});
-						int index = $scope.keywordCheck.length-1;
+						var index = $scope.keywordCheck.length-1;
 						keywordSearch(keyword, 0, index);
 					}
 				}
