@@ -1,59 +1,26 @@
 ---
 layout: simple
-title: Web Design OKC | Oklahoma City
-seotitle: Web Design | Bricktown SEO
+title: Website Design | Oklahoma City
+seotitle: Web Design OKC | Bricktown SEO
 seodesc: We offer web design services for start-up and established businesses. 
 permalink: /web-design-okc/
 ---
 
-<div id="service">
-    <div class="container">
-        <div class="row centered">
-            <div class="col-md-4">
-                <i class="fa fa-bolt"></i>
-                <h4>Search Engine Optimization</h4>
-                <p>We provide the strongest ranking services in the OKC Metro area. We have a strong reputation and provide quality service that allows websites to maintain their ranking consistently.</p>
-                <p><br/><a href="/seo/" class="btn btn-theme">More Info</a></p>
-            </div>
-            <div class="col-md-4">
-                <i class="fa fa-flask"></i>
-                <h4>Social Media Management</h4>
-                <p>You already are juggling so many things in your business operation, social media should not be something that holds you back. We will manage your Facebook, Twitter, LinkedIn, and other accounts so you can forget about it.</p>
-                <p><br/><a href="/social/" class="btn btn-theme">More Info</a></p>
-            </div>
-            <div class="col-md-4">
-                <i class="fa fa-mobile"></i>
-                <h4>Mobile Friendly</h4>
-                <p>More than <strong>60%</strong> of the online search engine usages comes from mobile devices. This means you need to be leveraging this knowledge to give your customer the best experience possible. We are mobile friendly, are you?</p>
-                <p><br/><a href="/mobile-friendly/" class="btn btn-theme">More Info</a></p>
-            </div>		 				
-        </div>
-    </div><! --/container -->
-</div><! --/service -->
-{% include testimonial.html %}
 <div class="container mtb">
     <div class="row">
-        <div class="col-lg-4 col-lg-offset-1">
-            <h4>More About Our Agency.</h4>
-            <p>{{ site.about }}</p>
-            <p><br/><a href="{{ "/about/" | prepend: site.baseurl }}" class="btn btn-theme">More Info</a></p>
+        <div class="col-lg-8 col-lg-offset-2">
+            <h2>Oklahoma City SEO</h2>
+            <p><strong>S</strong>earch <strong>e</strong>ngine <strong>o</strong>ptimization is the process of building your online profile so that your company shows as high as possible when your customers are "Googling" for you.  This comes in a combination of many different things from page evaluation on your website, to google places, Facebook pages and other social media strategies. This service is performed continuously to maintain the highest ranking positions possible.</p>
+            <h2>Online Advertising</h2>
+            <p>Another service we offer is the management of setting up, maintaining and driving traffic to your site through <a title="Google AdWords" href="/google-adwords/">Google AdWords</a>, Facebook Ads, Bing Ads and more. With these services we are looking to optimize your advertising to decrease the cost-per-click (CPC) expenses, increase your click-through rate (CTR) and ultimately have a conversion to a sale. We actively track these ads and provide you with feedback on how the ads are working. We help you target the customers you want so you can increase your business and decrease your headaches.</p>
+            <h2>Business Consulting</h2>
+            <p>One of our favorite things to do is meet with local businesses and help them develop an overall strategy. We love meeting and hearing from local businesses in the OKC area. We ask more than one hundred questions about the business, current customers, future customers, areas of growth and more. We want to see you succeed and grow your business. We offer a simple quick consultation for your business. We will gladly meet with you and talk about anything from website and social media to traditional forms of advertising and fill you up with information to help you make smarter business decisions.</p>
+            <h2>Custom Development</h2>
+            <p>We cover many different areas of development. Our group is capable of delivering custom software for your business in the following forms: web development, desktop software, and mobile app development. We also offer consulting services to help you put together a scope of work document and a plan to move forward with your software requests. We develop software for local businesses in Oklahoma City and throughout the US. We have experience in the following programming languages.</p>
+            <p>Java, C# (including Xamarin), C++, Objective-C, PHP, JavaScript (including AngularJS &amp; JQuery Frameworks)</p>
+            <h2>Custom Web Plugins</h2>
+            <p>When you use web content management systems (CMS) like Wordpress, they can get you 90% of the way to a complete and functioning website. The remaining 10% is typically accomplished through plugins. We can generate custom plugins for your company to accomplish the specialized features needed for your website. We also build Chrome and Firefox plugins for your business needs.</p>
+            <p>Call us today to discuss your options.</p>
         </div>
-
-        <div class="col-lg-3">
-            <h4>Frequently Asked</h4>
-            <div class="hline"></div>
-            {% for post in site.categories['question'] %} 
-                <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
-            {% endfor %}
-        </div>
-
-        <div class="col-lg-3">
-            <h4>Latest Posts</h4>
-            <div class="hline"></div>
-            {% for post in site.categories['blog'] limit:5 %} 
-                <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}.</a></p>
-            {% endfor %} 
-        </div>
-
-    </div><! --/row -->
+    </div>
 </div><! --/container -->
