@@ -28,6 +28,13 @@ angular.module('DomainApp')
         $scope.reset = function() {
             $scope.keywords = "";
             $scope.domain = "";
+            $scope.relatedKeywords = 1;
+            $scope.domains = {};
+            $scope.domainArray = [];
+            $scope.complete = false;
+            $scope.searching = false;
+            $scope.status = "";
+            
         }
 
         $scope.search = function() {
