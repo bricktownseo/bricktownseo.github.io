@@ -80,7 +80,7 @@ angular.module('DomainApp')
                 //your code when success
             	console.log(status);
             	var found = false;
-            	for(var x = 0; x < status.responseData.results.length && !found; x++){
+            	for(var x = 0; x < status.responseData.results.length /* && !found*/ ; x++){
             		if(status.responseData.results[x].url.indexOf($scope.domain)>0){
             			found = true;
             			$scope.keywordCheck[index]={
