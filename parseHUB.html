@@ -7,15 +7,15 @@ seodesc: This page is intended to collect data from websites.
 ---
 
 
-
+<div class="container mtb" ng-app="ParseHubApp" ng-controller="ParseHubCtrl">
 <div class="row">
         <div class="col-lg-8 col-lg-offset-2">
-            
             <form action="link goes here or the api">
 				<p> Keyword: <input type="text" name="keyWord"><br> </p>
 				<p> Region: <input type="text" name="region"><br> </p>
 				<p> API: <input type="text" name="api" value = "cabf37d902302d5facab64fede480371"><br> </p>
-				<p> <input type="submit" value="Submit"> </p>
+				<button class="btn btn-theme" ng-click="search()">Search</button>
 			</form>
         </div>
     </div>
+</div>
