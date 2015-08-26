@@ -25,7 +25,7 @@ seodesc: This page is intended to collect data from websites.
     <div class="row" ng-show="!searching">
     	<div class="col-lg-8 col-lg-offset-2">
 			<div class="form-group">
-				<label for="parse">ParseHUB API Key</label>
+				<label for="sem">ParseHUB API Key</label>
 				<input type="text" ng-change = "onChange()" ng-model="parsekey" class="form-control">
 			</div>
 			<div class="form-group">
@@ -33,8 +33,8 @@ seodesc: This page is intended to collect data from websites.
 				<input type="checkbox" ng-click="storeKey()" ng-model="store">
 			</div>
 			<div class="form-group">
-				<label for="parsep">ParseHUB Project Key</label>
-				<input type="text" ng-change = "onChange()" ng-model="parsepkey" class="form-control">
+				<label for="sem">ParseHUB Project Key</label>
+				<input type="text" ng-change = "onChange()" ng-model="parsekey" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="save">Save Key</label>
@@ -46,7 +46,7 @@ seodesc: This page is intended to collect data from websites.
 				<small>Example: "edmond dentist"</small>
 			</div>
 			<div class="form-group">
-				<label for="region">City, State</label>
+				<label for="region">Region</label>
 				<input type="text" class="form-control" ng-model="region">
 			</div>
 			<button class="btn btn-theme" ng-click="search()">Search</button>
