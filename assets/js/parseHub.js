@@ -70,15 +70,13 @@ angular.module('ParseHubApp')
         function parseHubKeyword(keyword) {
             var newRequest = new xdRequest;
             console.log("Requesting Phrase Related Keywords");
-            console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
-            newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
+            console.log("https://www.parsehub.com/api/v2/projects?api_key=tOq8Q3zmYVCMvLPf9pxWZV9R");
+            newRequest.setURL("https://www.parsehub.com/api/v2/projects?api_key=tOq8Q3zmYVCMvLPf9pxWZV9R");
             newRequest.get(function(response) {
                 var keywords = parseHubData(response.html);
                 $scope.$apply(function() {
                     $scope.keywords = keywords;
                 });
-
-                SEMRushOrganic();
             });
         }
 
