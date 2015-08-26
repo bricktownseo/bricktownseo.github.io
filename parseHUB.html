@@ -30,7 +30,7 @@ seodesc: This page is intended to collect data from websites.
 			</div>
 			<div class="form-group">
 				<label for="parsetoken">ParseHUB Project Token</label>
-				<input type="text" value="tC5Wfx0i4sWXCfLy7HN3y6Fh " class="form-control">
+				<input type="text" value="tC5Wfx0i4sWXCfLy7HN3y6Fh" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="keyword">Keyword</label>
@@ -56,6 +56,24 @@ seodesc: This page is intended to collect data from websites.
 		</div>
 	</div>
 
+<div class="row" ng-show="complete">
+		<div class="col-lg-8 col-lg-offset-2">
+			<table class="table">
+				<thead><tr><th>Keyword</th><th>City</th><th>Status</th><th>Action</th></tr></thead>
+				<tbody>
+					<tr ng-repeat="keyword in keywords">
+						<td>[[ getKey(keyword,"Keyword") ]]</td>
+						<td>[[ getKey(keyword,"City, State") ]]</td>
+						<td>[[ getKey(keyword,"Status") ]]</td>
+						<td>[[ getKey(keyword,"Action") ]]</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="col-lg-2">
+			<button class="btn btn-theme" ng-click="reset()">New Search</button>
+		</div>
+	</div>
 	<div class="row" ng-show="complete">
 		
 		<div class="col-lg-2">
