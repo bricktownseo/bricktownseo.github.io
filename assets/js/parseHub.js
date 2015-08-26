@@ -70,8 +70,8 @@ angular.module('ParseHubApp')
         function parseHubKeyword(keyword) {
             var newRequest = new xdRequest;
             console.log("Requesting Phrase Related Keywords");
-            console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
-            newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
+            console.log("https://www.parsehub.com/api/v2/projects/"+ {PROJECT_TOKEN} + "?api_key=" + {YOUR_API_KEY} + "&offset=0");
+            newRequest.setURL("https://www.parsehub.com/api/v2/projects/"+ {PROJECT_TOKEN} + "?api_key=" + {YOUR_API_KEY} + "&offset=0");
             newRequest.get(function(response) {
                 var keywords = parseHubData(response.html);
                 $scope.$apply(function() {

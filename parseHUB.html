@@ -20,17 +20,25 @@ seodesc: This page is intended to collect data from websites.
     </div>
 </div> -->
 
-<div class="container mtb" ng-app="SEMRushApp" ng-controller="SEMRushCtrl">
+<div class="container mtb" ng-app="ParseHubApp" ng-controller="ParseHubCtrl">
 
     <div class="row" ng-show="!searching">
     	<div class="col-lg-8 col-lg-offset-2">
 			<div class="form-group">
 				<label for="parseapi">ParseHUB API Key</label>
-				<input type="text" value="tOq8Q3zmYVCMvLPf9pxWZV9R" class="form-control">
+				<input type="text" id = "parseapi" ng-change = "onChange()" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="save1">Save Key</label>
+				<input type="checkbox" ng-click="storeKey()" ng-model="store">
 			</div>
 			<div class="form-group">
 				<label for="parsetoken">ParseHUB Project Token</label>
-				<input type="text" value="tC5Wfx0i4sWXCfLy7HN3y6Fh" class="form-control">
+				<input type="text" ng-change = "onChange()" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="save2">Save Key</label>
+				<input type="checkbox" ng-click="storeKey1()" ng-model="store">
 			</div>
 			<div class="form-group">
 				<label for="keyword">Keyword</label>
@@ -39,7 +47,7 @@ seodesc: This page is intended to collect data from websites.
 			</div>
 			<div class="form-group">
 				<label for="region">City, State</label>
-				<input type="text" class="form-control" ng-model="region">
+				<input type="text" id= "region" class="form-control" ng-model="region">
 			</div>
 			<button class="btn btn-theme" ng-click="search()">Search</button>
 	    </div>
