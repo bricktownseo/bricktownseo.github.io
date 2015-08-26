@@ -5,21 +5,40 @@ seotitle: ParseHUB | Free Online Tools
 permalink: /parsehub/
 seodesc: This page is intended to collect data from websites.
 ---
+<!-- 
 
 <div class="container mtb" ng-app="ParseHubApp" ng-controller="ParseHubCtrl">
+<div class="row">
+        <div class="col-lg-8 col-lg-offset-2">
+            <form action="link goes here or the api">
+				<p> Keyword: <input type="text" name="keyWord"><br> </p>
+				<p> Region: <input type="text" name="region"><br> </p>
+				<p> API: <input type="text" name="api" value = "cabf37d902302d5facab64fede480371"><br> </p>
+				<button class="btn btn-theme" ng-click="search()">Search</button>
+			</form>
+        </div>
+    </div>
+</div> -->
+
+<div class="container mtb" ng-app="SEMRushApp" ng-controller="SEMRushCtrl">
 
     <div class="row" ng-show="!searching">
     	<div class="col-lg-8 col-lg-offset-2">
-			<label for="sem">ParseHUB API Key</label>
-				<input type="text" id="sem" ng-change = "onChange()" ng-model="parsekey" class="form-control">
 			<div class="form-group">
-
+				<label for="parse">ParseHUB API Key</label>
+				<input type="text" ng-change = "onChange()" ng-model="parsekey" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="save">Save Key</label>
+				<input type="checkbox" ng-click="storeKey()" ng-model="store">
+			</div>
+			<div class="form-group">
 				<label for="parsep">ParseHUB Project Key</label>
 				<input type="text" ng-change = "onChange()" ng-model="parsepkey" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="save">Save Key</label>
-				<input type="checkbox" ng-click="parsekey()" ng-model="store">
+				<input type="checkbox" ng-click="storeKey()" ng-model="store">
 			</div>
 			<div class="form-group">
 				<label for="keyword">Keyword</label>
