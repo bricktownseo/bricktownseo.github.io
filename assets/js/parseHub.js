@@ -33,7 +33,7 @@ angular.module('ParseHubApp')
             $scope.complete = false;
             $scope.searching = false;
             $scope.status = "";
-            $scope.country = "us";
+            $scope.region = "us";
         }
 
         $scope.search = function() {
@@ -50,18 +50,18 @@ angular.module('ParseHubApp')
         //store value in local storage so that it can be reloaded agai
         $scope.storeKey = function() {
             if ($scope.store){
-                $window.localStorage['semkey'] = $scope.semkey;  
+                $window.localStorage['parsekey'] = $scope.parsekey;  
             }
             else
             {
-                $window.localStorage.removeItem('semkey');   
+                $window.localStorage.removeItem('parsekey');   
             }
         }
 
         //store value in local storage as user types
         $scope.onChange = function () {
-            if ($scope.semkey){
-                $window.localStorage['semkey'] = $scope.semkey;  
+            if ($scope.parsekey){
+                $window.localStorage['parsekey'] = $scope.parsekey;  
             }
 
             }
@@ -70,8 +70,8 @@ angular.module('ParseHubApp')
         function SEMRushKeyword(keyword) {
             var newRequest = new xdRequest;
             console.log("Requesting Phrase Related Keywords");
-            console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.semkey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.country);
-            newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.semkey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.country);
+            console.log("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
+            newRequest.setURL("http://api.semrush.com/?type=phrase_fullsearch&phrase=" + keyword + "&key=" + $scope.parsekey + "&display_limit=" + $scope.relatedKeywords + "&export_columns=Ph,Nq,Cp,Co,Nr,Td&database=" + $scope.region);
             newRequest.get(function(response) {
                 var keywords = SEMRushData(response.html);
                 $scope.$apply(function() {
@@ -88,8 +88,8 @@ angular.module('ParseHubApp')
                     $scope.status = ('Checking domains for keyword ' + $scope.keywords[i].Keyword + '...');
                     var newRequest = new xdRequest;
                     console.log("Keyword search for "+$scope.keywords[i].Keyword);
-                    console.log("http://api.semrush.com/?type=phrase_organic&key=" + $scope.semkey + "&display_limit=20&export_columns=Dn,Ur&phrase=" + encodeURIComponent($scope.keywords[i].Keyword) + "&database=" + $scope.country);
-                    newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key=" + $scope.semkey + "&display_limit=20&export_columns=Dn,Ur&phrase=" + encodeURIComponent($scope.keywords[i].Keyword) + "&database=" + $scope.country);
+                    console.log("http://api.semrush.com/?type=phrase_organic&key=" + $scope.parsekey + "&display_limit=20&export_columns=Dn,Ur&phrase=" + encodeURIComponent($scope.keywords[i].Keyword) + "&database=" + $scope.region);
+                    newRequest.setURL("http://api.semrush.com/?type=phrase_organic&key=" + $scope.parsekey + "&display_limit=20&export_columns=Dn,Ur&phrase=" + encodeURIComponent($scope.keywords[i].Keyword) + "&database=" + $scope.region);
                     newRequest.get(function(response) {
                         var testKeyword = response.url.substring(response.url.indexOf("phrase=") + 7);
                         testKeyword = decodeURIComponent(testKeyword.substring(0, testKeyword.indexOf("&")));
@@ -120,8 +120,8 @@ angular.module('ParseHubApp')
         function SEMRushDomain(domain) {
             $scope.complete = true;
             var newRequest = new xdRequest;
-            console.log("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=us");
-            newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.semkey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.country);
+            console.log("http://api.semrush.com/?type=domain_rank&key="+$scope.parsekey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=us");
+            newRequest.setURL("http://api.semrush.com/?type=domain_rank&key="+$scope.parsekey+"&export_columns=Dn,Rk,Or,Ot,Oc,Ad,At,Ac&domain="+domain+"&database=" + $scope.region);
             newRequest.get(function(response) {
                 $scope.$apply(function() {
                     var domaindata = SEMRushData(response.html);
@@ -182,10 +182,10 @@ angular.module('ParseHubApp')
             return arr[key];
         }
 
-        $window.localStorage['semkey'] == undefined ? $scope.semkey = "" : $scope.semkey = $window.localStorage['semkey'];
+        $window.localStorage['parsekey'] == undefined ? $scope.parsekey = "" : $scope.parsekey = $window.localStorage['parsekey'];
 
-        // $scope.semkey = $window.localStorage['semkey'];
-        $scope.store = $window.localStorage['semkey'] != undefined;
+        // $scope.parsekey = $window.localStorage['parsekey'];
+        $scope.store = $window.localStorage['parsekey'] != undefined;
         $scope.reset();
 
 
