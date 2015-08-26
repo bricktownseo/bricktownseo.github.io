@@ -26,7 +26,15 @@ seodesc: This page is intended to collect data from websites.
     	<div class="col-lg-8 col-lg-offset-2">
 			<div class="form-group">
 				<label for="sem">ParseHUB API Key</label>
-				<input type="text" id="sem" ng-change = "onChange()" ng-model="parsekey" class="form-control">
+				<input type="text" ng-change = "onChange()" ng-model="parsekey" class="form-control">
+			</div>
+			<div class="form-group">
+				<label for="save">Save Key</label>
+				<input type="checkbox" ng-click="storeKey()" ng-model="store">
+			</div>
+			<div class="form-group">
+				<label for="sem">ParseHUB Project Key</label>
+				<input type="text" ng-change = "onChange()" ng-model="parsekey" class="form-control">
 			</div>
 			<div class="form-group">
 				<label for="save">Save Key</label>
@@ -56,8 +64,36 @@ seodesc: This page is intended to collect data from websites.
 		</div>
 	</div>
 
-	<div class="row" ng-show="complete">
-		
+<div class="row" ng-show="complete">
+		<div class="col-lg-8 col-lg-offset-2">
+		<h3>Top Related Keywords</h3>
+			<table class="table">
+				<thead><tr><th>Keyword</th><th>Search Volume</th><th>CPC</th><th>Competition</th><th>Number of Results</th></tr></thead>
+				<tbody>
+					<tr ng-repeat="keyword in keywords">
+						<td>[[ getKey(keyword,"Keyword") ]]</td>
+						<td>[[ getKey(keyword,"Search Volume") ]]</td>
+						<td>[[ getKey(keyword,"CPC") ]]</td>
+						<td>[[ getKey(keyword,"Competition") ]]</td>
+						<td>[[ getKey(keyword,"Number of Results") ]]</td>
+					</tr>
+				</tbody>
+			</table>
+			<h3>Domain Results</h3>
+			<table class="table">
+				<thead>
+					<tr><th>Domain</th><th>Organic Place</th><th>Estimated AdWords</th></tr>
+				</thead>
+				<tbody>
+					<!--ng-class="{domain.paid:'bg-success'}"-->
+					<tr ng-repeat="domain in domains">
+						<td><a href="http://[[domain.domain]]" target="_blank">[[domain.domain]]</a></td>
+						<td>[[domain.position]]</td>
+						<td><span ng-show="domain.paid > 0">[[domain.paid | currency]]</span></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
 		<div class="col-lg-2">
 			<button class="btn btn-theme" ng-click="reset()">New Search</button>
 		</div>
