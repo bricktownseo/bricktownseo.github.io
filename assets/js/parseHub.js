@@ -58,6 +58,17 @@ angular.module('ParseHubApp')
             }
         }
 
+
+        $scope.storeKey1 = function() {
+            if ($scope.store1){
+                $window.localStorage['parsepkey'] = $scope.parsepkey;  
+            }
+            else
+            {
+                $window.localStorage.removeItem('parsepkey');   
+            }
+        }
+
         //store value in local storage as user types
         $scope.onChange = function () {
             if ($scope.parsekey){
