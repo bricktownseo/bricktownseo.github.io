@@ -140,9 +140,6 @@ angular.module('ParseHubApp')
         console.log("Status: "+result[k][name].statuss);
         }
 
-        $scope.getKey = function(arr, key) {
-            return arr[key];
-        }
 
         $window.localStorage['parsekey'] == undefined ? $scope.parsekey = "" : $scope.parsekey = $window.localStorage['parsekey'];
         $window.localStorage['parsepkey'] == undefined ? $scope.parsepkey = "" : $scope.parsepkey = $window.localStorage['parsepkey'];
