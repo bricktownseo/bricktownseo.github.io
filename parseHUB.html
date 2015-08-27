@@ -38,20 +38,7 @@ seodesc: This page is intended to collect data from websites.
 			</div>
 			<button class="btn btn-theme" ng-click="search()">Search</button>
 	    </div>
-    </div>
-	<div class="row" ng-show="searching">
-		<div class="col-lg-8 col-lg-offset-2">
-			<h2>[[status]]</h2>
-		</div>
-	</div>
-
-	<div class="row" ng-show="error_message">
-		<div class="col-lg-8 col-lg-offset-2">
-			<p class="bg-danger">[[error_message]]</p>
-		</div>
-	</div>
-
-<div class="row" ng-show="complete">
+	    <div class="row" ng-show="complete">
 		<div class="col-lg-8 col-lg-offset-2">
 			<table class="table">
 				<thead><tr><th>Keyword</th><th>City</th><th>Status</th><th>Action</th></tr></thead>
@@ -69,6 +56,20 @@ seodesc: This page is intended to collect data from websites.
 			<button class="btn btn-theme" ng-click="reset()">New Search</button>
 		</div>
 	</div>
+    </div>
+	<div class="row" ng-show="searching">
+		<div class="col-lg-8 col-lg-offset-2">
+			<h2>[[status]]</h2>
+		</div>
+	</div>
+
+	<div class="row" ng-show="error_message">
+		<div class="col-lg-8 col-lg-offset-2">
+			<p class="bg-danger">[[error_message]]</p>
+		</div>
+	</div>
+
+
 	<div class="row" ng-show="complete">
 		
 		<div class="col-lg-2">
