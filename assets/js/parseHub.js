@@ -23,7 +23,14 @@ angular
 
 
 angular.module('ParseHubApp')
-    .controller('ParseHubCtrl', ['$scope', '$window', function($scope, $window) {
+    .controller('ParseHubCtrl', ['$scope', '$http', '$window', function($scope, $http, $window) {
+
+
+        $http.get('https://www.parsehub.com/api/v2/projects/'+ parsepkey + '?api_key=' + parsekey + '&offset=0')
+        .success(function(data)) {
+            $scope.results = data;
+        }
+
 
 
 

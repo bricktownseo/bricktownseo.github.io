@@ -42,11 +42,10 @@ seodesc: This page is intended to collect data from websites.
 		<div class="col-lg-8 col-lg-offset-2">
 			<table class="table">
 				<thead><tr><th>Keyword</th><th>City, State</th><th>Status</th><th>Action</th></tr></thead>
-				<tbody>
-
-					<tr ng-repeat="name in results">
-						<td>[[ json(name,"keyword") ]]</td>
-						<td>[[ json(name,"status") ]]</td>
+				<tbody ng-controller="ParseHubCtrl">
+					<tr ng-repeat="result in results">
+						<td>{{result.title}}</td>
+						<td>{{   }}</td>
 					</tr>
 				</tbody>
 			</table>
