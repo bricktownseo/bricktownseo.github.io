@@ -41,13 +41,12 @@ seodesc: This page is intended to collect data from websites.
 	    <div class="row">
 		<div class="col-lg-8 col-lg-offset-2">
 			<table class="table">
-				<thead><tr><th>Keyword</th><th>City</th><th>Status</th><th>Action</th></tr></thead>
+				<thead><tr><th>Keyword</th><th>City, State</th><th>Status</th><th>Action</th></tr></thead>
 				<tbody>
+
 					<tr ng-repeat="keyword in keywords">
-						<td>[[ getKey(keyword,"Keyword") ]]</td>
-						<td>[[ getKey(keyword,"City, State") ]]</td>
-						<td>[[ getKey(keyword,"Status") ]]</td>
-						<td>[[ getKey(keyword,"Action") ]]</td>
+						<td>[[ json(keyword,"Keyword") ]]</td>
+						<td>[[ json(keyword,"Status") ]]</td>
 					</tr>
 				</tbody>
 			</table>

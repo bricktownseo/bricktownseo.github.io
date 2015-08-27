@@ -25,6 +25,9 @@ angular
 angular.module('ParseHubApp')
     .controller('ParseHubCtrl', ['$scope', '$window', function($scope, $window) {
 
+
+
+
         $scope.reset = function() {
             $scope.keyword = "";
             $scope.relatedKeywords = 1;
@@ -127,6 +130,14 @@ angular.module('ParseHubApp')
 
         $scope.dump = function() {
             console.log($scope);
+        }
+
+        $scope.json = function () {
+            var result = "https://www.parsehub.com/api/v2/projects/"+ parsepkey + "?api_key=" + parsekey + "&offset=0");
+           for (var k=0; k<result.length; k++)
+        for (var name in result[k]) {
+        console.log("keyword: "+start_value);
+        console.log("Status: "+result[k][name].statuss);
         }
 
         $scope.getKey = function(arr, key) {
