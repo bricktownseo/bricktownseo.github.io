@@ -138,8 +138,7 @@ angular.module('ParseHubApp')
             $.getJSON("https://www.parsehub.com/api/v2/projects/"+ parsepkey + "?api_key=" + parsekey + "&offset=0"), 
                 function(data) {
                     result = data;
-                }
-            );
+                };
            for (var k=0; k<result.length; k++)
         for (var name in result[k]) {
         console.log("keyword: "+start_value);
