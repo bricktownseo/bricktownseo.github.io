@@ -82,8 +82,8 @@ angular.module('ParseHubApp')
         function parseHubKeyword(keyword) {
             var newRequest = new xdRequest;
             console.log("Requesting Phrase Related Keywords");
-            console.log("https://www.parsehub.com/api/v2/projects/"+ {PROJECT_TOKEN} + "?api_key=" + {YOUR_API_KEY} + "&offset=0");
-            newRequest.setURL("https://www.parsehub.com/api/v2/projects/"+ {PROJECT_TOKEN} + "?api_key=" + {YOUR_API_KEY} + "&offset=0");
+            console.log("https://www.parsehub.com/api/v2/projects/"+ parsepkey + "?api_key=" + parsekey + "&offset=0");
+            newRequest.setURL("https://www.parsehub.com/api/v2/projects/"+ parsepkey + "?api_key=" + parsepkey + "&offset=0");
             newRequest.get(function(response) {
                 var keywords = parseHubData(response.html);
                 $scope.$apply(function() {
