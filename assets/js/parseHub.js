@@ -150,6 +150,7 @@ angular.module('ParseHubApp')
         console.log("keyword: "+start_value);
         console.log("Status: "+result[k][name].statuss);
         }
+    }
 
 
         $window.localStorage['parsekey'] == undefined ? $scope.parsekey = "" : $scope.parsekey = $window.localStorage['parsekey'];
