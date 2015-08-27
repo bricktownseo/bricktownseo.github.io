@@ -44,9 +44,9 @@ seodesc: This page is intended to collect data from websites.
 				<thead><tr><th>Keyword</th><th>City, State</th><th>Status</th><th>Action</th></tr></thead>
 				<tbody>
 
-					<tr ng-repeat="keyword in keywords">
-						<td>[[ json(keyword,"Keyword") ]]</td>
-						<td>[[ json(keyword,"Status") ]]</td>
+					<tr ng-repeat="name in results">
+						<td>[[ json(name,"keyword") ]]</td>
+						<td>[[ json(name,"status") ]]</td>
 					</tr>
 				</tbody>
 			</table>
