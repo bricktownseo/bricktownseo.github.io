@@ -63,7 +63,9 @@ angular.module('ParseHubApp')
             if ($scope.parsekey){
                 $window.localStorage['parsekey'] = $scope.parsekey;  
             }
-
+            if ($scope.parsepkey){
+                $window.localStorage['parsepkey'] = $scope.parsepkey;  
+            }
             }
 
 
@@ -122,9 +124,11 @@ angular.module('ParseHubApp')
         }
 
         $window.localStorage['parsekey'] == undefined ? $scope.parsekey = "" : $scope.parsekey = $window.localStorage['parsekey'];
-
+        $window.localStorage['parsepkey'] == undefined ? $scope.parsepkey = "" : $scope.parsepkey = $window.localStorage['parsepkey'];
+        
         // $scope.parsekey = $window.localStorage['parsekey'];
         $scope.store = $window.localStorage['parsekey'] != undefined;
+        $scope.store = $window.localStorage['parsepkey'] != undefined;
         $scope.reset();
 
 
