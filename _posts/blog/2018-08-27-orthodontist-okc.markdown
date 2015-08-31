@@ -7,7 +7,7 @@ categories:
 - blog 
 - video
 - review
-img: oklahoma-city-eye-doctor-large.jpg
+img: YouTube.png
 thumb: oklahoma-city-eye-doctor.jpg
 permalink: /oklahoma-city-optometrist/
 ---
