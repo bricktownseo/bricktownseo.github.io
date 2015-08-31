@@ -11,8 +11,8 @@ img: oklahoma-city-eye-doctor-large.jpg
 thumb: oklahoma-city-eye-doctor.jpg
 permalink: /oklahoma-city-optometrist/
 ---
-<div style="width:100%; height:0; margin-bottom:57%">
-<iframe width="100%" src="https://www.youtube.com/embed/MeK6QNwb-CA?rel=0" frameborder="0" allowfullscreen></iframe>
+<div style="width:100%; height:0; padding-bottom:57%">
+<iframe width="100%" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/MeK6QNwb-CA?rel=0" frameborder="0" allowfullscreen></iframe>
 </div>
 
 In this video Bricktown SEO gives a review of optometrist okc, eye doctor okc, and the websites that return in search for theses keywords. Some of the topics covered in this video include the metric system used to determine a websites position within the search results. Here, they randomly chose two websites that rank on different pages (Page 1 & Page 2) then compare the differences between these sites inside and out. Terms like Eye Doctor OKC, and Optometrist OKC Reviews, receive a considerable amount of search volume to the point that any eye doctor / optometrist in OKC should highly consider optimizing their own websites for these keywords. <!--more-->
