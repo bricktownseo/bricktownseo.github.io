@@ -1,15 +1,15 @@
 ---
 layout: post
-title: "Orthodontist OKC Online Review"
+title: "Optometrist OKC Online Review"
 date: 2015-08-27 23:50:10
 author: Phil Switzer
 categories: 
 - blog 
 - video
 - review
-img: http://img.youtube.com/vi/MeK6QNwb-CA/maxresdefault.jpg
-thumb: http://img.youtube.com/vi/MeK6QNwb-CA/sddefault.jpg
-permalink: /oklahoma-city-orthodontist/
+img: oklahoma-city-eye-doctor-large.jpg
+thumb: oklahoma-city-eye-doctor.jpg
+permalink: /oklahoma-city-optometrist/
 ---
 <div style="width:100%; height:0; margin-bottom:57%">
 <iframe width="100%" src="https://www.youtube.com/embed/MeK6QNwb-CA?rel=0" frameborder="0" allowfullscreen></iframe>
@@ -24,11 +24,3 @@ We will be releasing a series of videos that cover the basics of search engine o
 The knowledge shared in this video may be applied to any Eye Doctor OKC website, and can also be applied to the websites of optometrists in OKC. Reviews will be given in an attempt to share what we know with you and your team.
 
 If your business is in need of SEO services, please contact us.
-
-#eye_doctor
-#optometrist
-#oklahoma_city
-
-#eye_doctor_reviews_okc
-#optometrist_okc
-#eye_doctor_okc
