@@ -1,6 +1,20 @@
----
-layout: default
----
-{% include wrap.html %}
+<!DOCTYPE html>
+<html>
 
-    {{ content }}
+    {% include head.html %}
+
+    <body>
+        {% include nav.html %}
+         
+		{% include wrap.html %}    
+
+		    {{ content }}
+
+        {% include footer.html %}
+        {% include js.html %}
+        <script src="{{ "/assets/js/xdRequest.js" | prepend: site.baseurl }}"></script> 
+        <script src="{{ "/assets/js/vendor.js" | prepend: site.baseurl }}"></script>
+		<script src="{{ "/assets/js/contact.js" | prepend: site.baseurl }}"></script>
+    </body>
+</html>
+
