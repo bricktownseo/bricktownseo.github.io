@@ -8,6 +8,7 @@ angular
 
 
 angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) {
+	$scope.thanks = false;
 
 	$scope.contact = function(){
 
