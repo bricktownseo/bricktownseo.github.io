@@ -13,15 +13,15 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 
 		console.log($scope);
 
-		if($scope.name==undefined || $scope.name.length>0){
+		if($scope.name==undefined || $scope.name.length==0){
 			alert("Please enter your name.");
 			return;
 		}
-		if($scope.phone==undefined || $scope.phone.length>0){
+		if($scope.phone==undefined || $scope.phone.length==0){
 			alert("Please enter your phone.");
 			return;
 		}
-		if($scope.message==undefined || $scope.message.length>0){
+		if($scope.message==undefined || $scope.message.length==0){
 			alert("Please enter your message.");
 			return;
 		}
