@@ -9,7 +9,6 @@ permalink: /contact/
 <div id="contactwrap"></div>
 
 <div class="container mtb"  ng-app="Contact" ng-controller="ContactCtrl">
-  [[thanks]]
     <div class="row">
         <div class="col-lg-8">
             <h4>Just Get In Touch!</h4>
@@ -36,7 +35,7 @@ permalink: /contact/
                   * Required Fields
                 </form>
                 <div ng-show="thanks">
-                  Thank you {{$scope.name}}, Bricktown SEO has been notified and someone will get back with you ASAP.
+                  <blockquote>Thank you [[name]], Bricktown SEO has been notified and someone will get back with you ASAP.</blockquote>
                 </div>
         </div><! --/col-lg-8 -->
         
