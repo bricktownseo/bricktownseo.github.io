@@ -9,6 +9,8 @@ angular
 
 angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) {
 
+	console.log('CONTACT CTRL');
+
 	$scope.contact = function(){
 		alert('CONTACT');
 		/*
