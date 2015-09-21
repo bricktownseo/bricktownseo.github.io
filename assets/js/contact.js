@@ -11,6 +11,8 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 
 	$scope.contact = function(){
 
+		console.log($scope);
+
 		if($scope.name!=null && $scope.name.length>0){
 			alert("Please enter your name.");
 			return;
@@ -23,7 +25,7 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 			alert("Please enter your message.");
 			return;
 		}
-		
+		/*
 		var ContactObject = Parse.Object.extend("Contact");
 		var contactObject = new ContactObject();
 		contactObject.set("Name", $scope.name);
@@ -34,7 +36,8 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 		contactObject.save().then(function(object) {
 			$scope.thanks = true;
 		});
-
+		*/
+		
 		$scope.data = 'TEST';
 	};
 
