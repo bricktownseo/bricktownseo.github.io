@@ -1,13 +1,5 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name unitSchedulingApp
- * @description
- * # unitSchedulingApp
- *
- * Main module of the application.
- */
 angular
     .module('Contact', [], function($interpolateProvider) {
         $interpolateProvider.startSymbol('[[');
@@ -18,6 +10,8 @@ angular
 angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) {
 
 	$scope.contact = function(){
+		alert('CONTACT');
+		/*
 		console.log($scope);
 		var ContactObject = Parse.Object.extend("Contact");
 		var contactObject = new ContactObject();
@@ -26,6 +20,7 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 		});
 
 		$scope.data = 'TEST';
+		*/
 	};
 
 }]);
