@@ -15,22 +15,20 @@ permalink: /contact/
             <h4>Just Get In Touch!</h4>
             <div class="hline"></div>
                 <p>{{ site.about }}</p>
-                <form role="form" action="//formspree.io/bricktownseo@gmail.com" method="post">
+                <form role="form">
                   <div class="form-group">
                     <label for="Name">Name</label>
-                    <input type="text" class="form-control" id="Name" name="name">
+                    <input type="text" class="form-control" id="Name" name="name" ng-model="name">
                   </div>
                   <div class="form-group">
                     <label for="Email">Email address</label>
-                    <input type="email" class="form-control" id="Email" name="_replyto">
+                    <input type="email" class="form-control" id="Email" name="_replyto" ng-model="email">
                   </div>
                   <div class="form-group">
                     <label for="Message">Contact Information and Request</label>
-                    <textarea class="form-control" id="Message" rows="3" name="Message"></textarea>
+                    <textarea class="form-control" id="Message" rows="3" name="Message" ng-model="message"></textarea>
                   </div>
-                  <button type="submit" class="btn btn-theme">Submit</button>
-                  <input type="hidden" name="_subject" value="Web Submission!" />
-                  <input type="text" name="_gotcha" style="display:none" />
+                  <button type="button" ng-click="contact" class="btn btn-theme">Submit</button>
                   <!--<input type="hidden" name="_next" value="//bricktownseo.com/thanks/" />-->
                 </form>
         </div><! --/col-lg-8 -->
