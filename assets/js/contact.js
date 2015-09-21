@@ -33,7 +33,9 @@ angular.module('Contact').controller('ContactCtrl', ['$scope', function($scope) 
 		contactObject.set("Message", $scope.message);
 
 		contactObject.save().then(function(object) {
-			$scope.thanks = true;
+			$scope.$apply(function(){
+				$scope.thanks = true;
+			});
 		});
 		
 	};
