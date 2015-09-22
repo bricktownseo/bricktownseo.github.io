@@ -14,19 +14,20 @@ angular.module('Discovery').controller('DiscoveryCtrl', ['$scope', function($sco
 	$scope.form = {};
 
 	var ResponseObject = Parse.Object.extend("Response");
-	$scope.responseObject = new ContactObject();
+	$scope.responseObject = new ResponseObject();
 	$scope.responseObject.set("Data", $scope.form);
 	$scope.responseObject.save();
 
 	$scope.next = function(){
-		$scope.step ++;
+		$scope.step++;
 		$scope.responseObject.set("Data", $scope.form);
 		$scope.responseObject.save();
 	}
 
 	$scope.submit = function(){
 		$scope.responseObject.set("Data", $scope.form);
-
+		$scope.step++;
+		
 		$scope.responseObject.save().then(function(object) {
 			$scope.$apply(function(){
 				$scope.thanks = true;
