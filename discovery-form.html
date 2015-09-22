@@ -77,7 +77,7 @@ Don’t worry, it’s simple and unobtrusive. We just need to know what you’re
 	            </form>
 	            <form role="form" ng-show="step==3">
 	            	  <div class="form-group">
-	                    <label for="SEO">Have you had previous SEO completed on your site? If so at what level?</label>
+	                    <label for="SEO">Have you had previous SEO completed on your site? If so at what level?</label><br/>
 	                    <select name="SEO" ng-model="form.seo">
 	                    	<option>No previous SEO</option>
 	                    	<option>Under $500 / Month</option>
@@ -98,13 +98,13 @@ Don’t worry, it’s simple and unobtrusive. We just need to know what you’re
 	                    <input type="text" class="form-control" id="AdditionalCustomers" name="additional_customers" ng-model="form.additional_customers">
 	                  </div>
 	                  <div class="form-group">
-	                    <label for="Marketing">Are you doing any other forms of marketing? Check all that apply.</label>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[seo]" value="SEO">SEO (Search Engine Optimization)<br>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[ppc]" value="PPC">PPC (Pay Per Click)<br>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[rtb]" value="RTB">RTB (Real Time Bidding)<br>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[video]" value="Video">Video Marketing<br>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[social]" value="Social">Social Media<br>
-	                    <input type="checkbox" name="marketing[]" ng-model="form.marketing[offline]" value="Offline">Offline Print, Radio, Media<br>
+	                    <label for="Marketing">Are you doing any other forms of marketing? Check all that apply.</label><br/>
+	                    <input type="checkbox" name="marketing[0]" ng-model="form.marketing[seo]" value="SEO">SEO (Search Engine Optimization)<br>
+	                    <input type="checkbox" name="marketing[1]" ng-model="form.marketing[ppc]" value="PPC">PPC (Pay Per Click)<br>
+	                    <input type="checkbox" name="marketing[2]" ng-model="form.marketing[rtb]" value="RTB">RTB (Real Time Bidding)<br>
+	                    <input type="checkbox" name="marketing[3]" ng-model="form.marketing[video]" value="Video">Video Marketing<br>
+	                    <input type="checkbox" name="marketing[4]" ng-model="form.marketing[social]" value="Social">Social Media<br>
+	                    <input type="checkbox" name="marketing[5]" ng-model="form.marketing[offline]" value="Offline">Offline Print, Radio, Media<br>
 	                  </div>
 	                  <div class="form-group">
 	                    <label for="Advertising">What would you say has been your MOST effective advertising method?</label>
