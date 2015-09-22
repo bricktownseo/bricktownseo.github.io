@@ -10,40 +10,29 @@ angular
 angular.module('Discovery').controller('DiscoveryCtrl', ['$scope', function($scope) {
 
 	$scope.step = 1;
+	$scope.thanks = false;
+	$scope.form = {};
+
+	var ResponseObject = Parse.Object.extend("Response");
+	$scope.responseObject = new ContactObject();
+	$scope.responseObject.set("Data", $scope.form);
+	$scope.responseObject.save();
 
 	$scope.next = function(){
 		$scope.step ++;
+		$scope.responseObject.set("Data", $scope.form);
+		$scope.responseObject.save();
 	}
-	// $scope.thanks = false;
 
-	// $scope.contact = function(){
+	$scope.submit = function(){
+		$scope.responseObject.set("Data", $scope.form);
 
-	// 	if($scope.name==undefined || $scope.name.length==0){
-	// 		alert("Please enter your name.");
-	// 		return;
-	// 	}
-	// 	if($scope.phone==undefined || $scope.phone.length==0){
-	// 		alert("Please enter your phone.");
-	// 		return;
-	// 	}
-	// 	if($scope.message==undefined || $scope.message.length==0){
-	// 		alert("Please enter your message.");
-	// 		return;
-	// 	}
-		
-	// 	var ContactObject = Parse.Object.extend("Discovery");
-	// 	var contactObject = new ContactObject();
-	// 	contactObject.set("Name", $scope.name);
-	// 	contactObject.set("Phone", $scope.phone);
-	// 	contactObject.set("Email", $scope.email);
-	// 	contactObject.set("Message", $scope.message);
-
-	// 	contactObject.save().then(function(object) {
-	// 		$scope.$apply(function(){
-	// 			$scope.thanks = true;
-	// 		});
-	// 	});
-		
-	// };
+		$scope.responseObject.save().then(function(object) {
+			$scope.$apply(function(){
+				$scope.thanks = true;
+			});
+		});
+	
+	};
 
 }]);
