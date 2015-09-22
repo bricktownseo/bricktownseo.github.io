@@ -11,7 +11,7 @@ angular.module('Discovery').controller('DiscoveryCtrl', ['$scope', function($sco
 
 	$scope.step = 1;
 	$scope.thanks = false;
-	$scope.form = {};
+	$scope.form = {marketing:{}};
 
 	var ResponseObject = Parse.Object.extend("Response");
 	$scope.responseObject = new ResponseObject();
@@ -27,7 +27,7 @@ angular.module('Discovery').controller('DiscoveryCtrl', ['$scope', function($sco
 	$scope.submit = function(){
 		$scope.responseObject.set("Data", $scope.form);
 		$scope.step++;
-		
+
 		$scope.responseObject.save().then(function(object) {
 			$scope.$apply(function(){
 				$scope.thanks = true;
